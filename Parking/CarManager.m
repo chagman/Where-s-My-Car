@@ -60,13 +60,14 @@ static CarManager *sharedCarManagerInstance = nil;
     return car;
 }
 
--(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location {
+-(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location notes:(NSString *)notes {
     NSManagedObjectContext *context = self.managedObjectContext;
     CHParkingSpot *spot = (CHParkingSpot *)[NSEntityDescription insertNewObjectForEntityForName:@"CHParkingSpot" inManagedObjectContext:context];
     spot.car = car;
     spot.latitude = [NSNumber numberWithDouble:location.coordinate.latitude];
     spot.longitude = [NSNumber numberWithDouble:location.coordinate.longitude];
     spot.startDate = [[NSDate alloc] init];
+    spot.notes = notes;
     
     NSError *error = nil;
     if (![context save:&error]){
@@ -76,7 +77,7 @@ static CarManager *sharedCarManagerInstance = nil;
 }
 
 
--(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location endDate:(NSDate *)endDate {
+-(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location endDate:(NSDate *)endDate notes:(NSString *)notes {
     NSManagedObjectContext *context = self.managedObjectContext;
     CHParkingSpot *spot = (CHParkingSpot *)[NSEntityDescription insertNewObjectForEntityForName:@"CHParkingSpot" inManagedObjectContext:context];
     spot.car = car;
@@ -84,6 +85,7 @@ static CarManager *sharedCarManagerInstance = nil;
     spot.longitude = [NSNumber numberWithDouble:location.coordinate.longitude];
     spot.startDate = [[NSDate alloc] init];
     spot.endDate = endDate;
+    spot.notes = notes;
     
     [self scheduleNotificationForSpot:spot interval:15];
     
@@ -94,7 +96,7 @@ static CarManager *sharedCarManagerInstance = nil;
     return spot;
 }
 
--(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location meterLimitInSeconds:(NSInteger)seconds {
+-(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location meterLimitInSeconds:(NSInteger)seconds notes:(NSString *)notes{
     NSManagedObjectContext *context = self.managedObjectContext;
     CHParkingSpot *spot = (CHParkingSpot *)[NSEntityDescription insertNewObjectForEntityForName:@"CHParkingSpot" inManagedObjectContext:context];
     spot.car = car;
@@ -103,6 +105,7 @@ static CarManager *sharedCarManagerInstance = nil;
     spot.startDate = [[NSDate alloc] init];
     spot.endDate = [spot.startDate dateByAddingTimeInterval:seconds];
     spot.timeLimit = [NSNumber numberWithInteger:seconds];
+    spot.notes = notes;
     
     [self scheduleNotificationForSpot:spot interval:15];
     
@@ -136,31 +139,12 @@ static CarManager *sharedCarManagerInstance = nil;
 }
 
 -(CHCar *)getDefaultCar {
-    
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"CHCar" 
-                                                         inManagedObjectContext:self.managedObjectContext];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    
-    NSPredicate *testForTrue = [NSPredicate predicateWithFormat:@"defaultCar == YES"];
-    [request setPredicate:testForTrue];
-    
-    // Set example predicate and sort orderings...
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-                                        initWithKey:@"model" ascending:YES];
-    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    [request setFetchLimit:1];
-    
-    NSError *error = nil;
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
-    if (array == nil || ([array count] < 1)) {
-        NSLog(@"No default car found");
+    CHParkingSpot *spot = [self getMostRecentSpot];
+    if (spot == nil) {
         return nil;
     }
     
-    return (CHCar *)[array objectAtIndex:0];
-    
+    return spot.car;
 }
 
 - (NSString *)timeRemainingForSpot:(CHParkingSpot *)spot {

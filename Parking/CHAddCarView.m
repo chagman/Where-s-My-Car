@@ -72,7 +72,7 @@
     
     self.labels = [NSArray arrayWithObjects:@"Make", @"Model", @"Year", @"Color", nil];
     //Create sample data for user to view
-    NSArray *exampleAttrs = [NSArray arrayWithObjects:@"e.g. DeLorean", @"e.g. DMC-12", @"2012", @"Gray", nil];
+    NSArray *exampleAttrs = [NSArray arrayWithObjects:@"e.g. DeLorean", @"e.g. DMC-12", @"1985", @"Gray", nil];
     self.attributes = [NSDictionary dictionaryWithObjects:exampleAttrs forKeys:self.labels];
     
     NSArray *emptyValues = [NSArray arrayWithObjects:@"", @"", @"", @"", nil];
@@ -142,15 +142,9 @@
     cell.key =  cell.label.text;
     cell.textField.placeholder = [self.attributes objectForKey:cell.key];
     cell.delegate = self;
-    
-    /*
-    // Configure the cell...
-    UILabel *label = (UILabel *)[cell viewWithTag:1];
-    UITextField *textField = (UITextField *)[cell viewWithTag:2];
-    
-    label.text = [self.labels objectAtIndex:indexPath.row];
-    textField.placeholder = [self.attributes objectForKey:label.text];
-    */
+    if ([cell.key isEqualToString:@"Year"]) {
+        cell.textField.keyboardType = UIKeyboardTypeNumberPad;
+    }
     
     return cell;
 }

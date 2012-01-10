@@ -17,6 +17,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        self.textField.delegate =self;
+        self.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+        
     }
     return self;
 }
@@ -35,6 +38,19 @@
     //NSDictionary *dict = [NSDictionary dictionaryWithObject:self.textField.text forKey:self.key];
     
     [self.delegate editDidFinish:dict];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (textField == self.textField) {
+        [self editingDidFinish:nil];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if (theTextField == self.textField) {
+        [theTextField resignFirstResponder];
+    }
+    return YES;
 }
 
 @end

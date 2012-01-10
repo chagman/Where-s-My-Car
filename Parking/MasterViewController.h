@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import <CoreData/CoreData.h>
+#import "CHAddCarView.h"
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate, CHAddCarViewDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

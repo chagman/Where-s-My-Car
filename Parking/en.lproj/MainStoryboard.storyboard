@@ -82,10 +82,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.50000000000000011" contentMode="left" text="   Tap the map to set your car's location " lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="qDo-PT-xuM">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="   Tap the map to set your car's location " lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="qDo-PT-xuM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -120,11 +120,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHa-uZ-NKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="tFa-G9-gDs" customClass="CHAddCarView" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rEz-p7-P92">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CarInfoCell" id="qaq-hf-7Rx" customClass="CHEditTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CarInfoCell" id="qaq-hf-7Rx" customClass="CHEditTableViewCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -132,10 +132,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="wjM-jY-hEK">
-                                            <rect key="frame" x="71" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="77" y="11" width="36" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                            <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter" minimumFontSize="17" id="Odl-Da-7fl">
@@ -144,7 +144,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
-                                                <action selector="editingDidFinish:" destination="qaq-hf-7Rx" eventType="editingDidEnd" id="ljy-d0-X2O"/>
+                                                <outlet property="delegate" destination="qaq-hf-7Rx" id="fxw-z0-6wP"/>
                                             </connections>
                                         </textField>
                                     </subviews>
@@ -170,7 +170,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2248" y="1362"/>
+            <point key="canvasLocation" x="2480" y="902"/>
         </scene>
         <scene sceneID="KUD-2t-f4d">
             <objects>
@@ -231,15 +231,19 @@
                                     <rect key="frame" x="10" y="1" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Detail" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="Hwr-Nn-gRd">
-                                            <rect key="frame" x="83" y="12" width="177" height="19"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Detail" lineBreakMode="wordWrap" numberOfLines="2" minimumFontSize="10" id="Hwr-Nn-gRd">
+                                            <rect key="frame" x="83" y="6" width="158" height="31"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="meter.png" id="K5c-YP-8Xf">
+                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" image="meterHead.png" id="K5c-YP-8Xf">
                                             <rect key="frame" x="40" y="4" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" image="reminderIcon.png" id="tsb-nw-GwU">
+                                            <rect key="frame" x="243" y="4" width="32" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -250,15 +254,47 @@
                                     <segue destination="xcS-lx-s5D" kind="push" identifier="timerSelected" id="Acg-dh-DUE"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MapViewCell" rowHeight="199" id="NRB-aL-Hiw" customClass="CHParkingMapCell">
-                                <rect key="frame" x="0.0" y="135" width="320" height="200"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NotesCell" rowHeight="44" id="1HH-wW-egY" customClass="CHEditTableViewCell">
+                                <rect key="frame" x="0.0" y="135" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="198"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Notes" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="5BJ-ms-cbQ">
+                                            <rect key="frame" x="10" y="14" width="67" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                            <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g. Level P2" minimumFontSize="17" id="o6r-I2-eov">
+                                            <rect key="frame" x="85" y="0.0" width="195" height="42.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="1HH-wW-egY" id="ncX-Lo-uza"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="label" destination="5BJ-ms-cbQ" id="vMo-ba-nM7"/>
+                                    <outlet property="textField" destination="o6r-I2-eov" id="wjX-6v-JXQ"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MapViewCell" rowHeight="180" id="NRB-aL-Hiw" customClass="CHParkingMapCell">
+                                <rect key="frame" x="0.0" y="179" width="320" height="181"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <mapView multipleTouchEnabled="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" showsUserLocation="YES" id="cWh-wl-MVx">
-                                            <rect key="frame" x="0.0" y="-2" width="300" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <connections>
                                                 <outlet property="delegate" destination="NRB-aL-Hiw" id="BHn-CD-YUZ"/>
@@ -286,7 +322,7 @@
                                 <action selector="cancel:" destination="rom-hz-q5T" id="w8h-j2-dud"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Park" style="done" id="wRb-lx-NR5">
+                        <barButtonItem key="rightBarButtonItem" tag="5" title="Park" style="done" id="wRb-lx-NR5">
                             <connections>
                                 <action selector="done:" destination="rom-hz-q5T" id="pdm-Uc-r0X"/>
                             </connections>
@@ -531,7 +567,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cars" id="36"/>
+                    <navigationItem key="navigationItem" title="Cars" id="36">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yv4-C3-Agy">
+                            <connections>
+                                <segue destination="tFa-G9-gDs" kind="push" identifier="addCar" id="cMZ-3p-iXV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="880" y="461"/>
@@ -561,7 +603,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1323" y="461"/>
+            <point key="canvasLocation" x="1455" y="-15"/>
         </scene>
     </scenes>
     <resources>
@@ -570,7 +612,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="78-stopwatch.png" width="22" height="26"/>
         <image name="81-dashboard.png" width="28" height="28"/>
         <image name="calendar.png" width="26" height="27"/>
-        <image name="meter.png" width="30" height="30"/>
+        <image name="meterHead.png" width="26" height="35"/>
+        <image name="reminderIcon.png" width="28" height="31"/>
     </resources>
     <classes>
         <class className="CHAddCarView" superclassName="UITableViewController">
@@ -662,4 +705,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="cMZ-3p-iXV"/>
+    </inferredMetricsTieBreakers>
 </document>

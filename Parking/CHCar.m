@@ -20,7 +20,7 @@
 @dynamic spots;
 
 -(NSString *)carLabel {
-    return [NSString stringWithFormat:@"%@ %@ %@", self.make, self.model, self.color];
+    return [NSString stringWithFormat:@"%@ %@", self.make, self.model];
 }
 
 @end

@@ -18,16 +18,26 @@
 
 @interface CHParkingView () {
     NSString *_timeLabel;
+    BOOL _reminderSet;
+    
+    NSString *_NOTES_KEY;
 }
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)toggleParkButton;
+- (NSString *)labelForTimeCell;
+- (BOOL)calendarReminderIsSet;
+- (BOOL)meterIsSet;
 
 @property (strong, nonatomic) NSString *timeLabel;
+@property (nonatomic) BOOL reminderSet;
+@property (strong, nonatomic) NSString *NOTES_KEY;
 
 @end
 
 @implementation CHParkingView
 
-@synthesize parkingAttrs=_parkingAttrs, dataSource=_dataSource, locationAttrs=_locationAttrs, car=_car, spot=_spot, location=_location, parkingDelegate=_parkingDelegate;
+@synthesize parkingAttrs=_parkingAttrs, dataSource=_dataSource, locationAttrs=_locationAttrs, car=_car, spot=_spot, location=_location, parkingDelegate=_parkingDelegate, reminderSet=_reminderSet, notes=_notes, NOTES_KEY=_NOTES_KEY;
+
 @synthesize startDate=_startDate, endDate=_endDate, timeLimit=_timeLimit, timeLabel=_timeLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,6 +61,7 @@
 
 -(void)updateLocation:(CLLocation *)location {
     self.location = location;
+    [self toggleParkButton];
     NSLog(@"New location: latitude %+.6f, longitude %+.6f\n",
           location.coordinate.latitude,
           location.coordinate.longitude);
@@ -66,12 +77,12 @@
         //TODO handle error
     } else {
         CHParkingSpot *spot;
-        if (self.endDate != nil) {
-            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location endDate:self.endDate];
-        } else if (self.timeLimit > 0){
-            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location meterLimitInSeconds:self.timeLimit];
-        } else if ([self.timeLabel isEqualToString:@"None"]) {
-            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location]; 
+        if ([self calendarReminderIsSet]) {
+            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location endDate:self.endDate notes:self.notes];
+        } else if ([self meterIsSet]){
+            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location meterLimitInSeconds:self.timeLimit notes:self.notes];
+        } else {
+            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location notes:self.notes]; 
         }
         [self.parkingDelegate addParkingSpotToMap:spot];
     }
@@ -88,6 +99,9 @@
     } else if ([[segue identifier] isEqualToString:@"timerSelected"]) {
         CHTimeTabBar *tabBar = (CHTimeTabBar *)[segue destinationViewController];
         tabBar.meterDelegate = self;
+        
+        
+               
     } else if ([[segue identifier] isEqualToString:@"tapMapView"]) { 
         CHParkingMapSelectLocation *view = (CHParkingMapSelectLocation *)[segue destinationViewController];
         view.delegate = self;
@@ -109,6 +123,7 @@
 -(void)didPickTimeLimitWithEndDate:(NSDate *)endDate label:(NSString *)label{
     NSLog(@"Time limit is set!");
     
+    self.reminderSet = YES;
     self.endDate = endDate;
     self.timeLabel = label;
     
@@ -125,7 +140,7 @@
     NSLog(@"Meter limit is set!");
     self.timeLimit = meterTime;
     self.timeLabel = label;
-    
+    self.reminderSet = YES;
     //clear the end date
     self.endDate = nil;
     
@@ -155,6 +170,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)editDidFinish:(NSDictionary *)result {
+    NSString *key = (NSString*)[result objectForKey:@"key"];
+    if ([key isEqualToString:self.NOTES_KEY]){
+        NSString *notes = (NSString *)[result objectForKey:@"value"];
+        NSLog(@"%@", notes);
+        self.notes = notes;
+    }
+}
 
 
 #pragma mark - tableView methods
@@ -175,6 +198,7 @@
     static NSString *CellIdentifier = @"Cell";
     static NSString *MapCellIdentifier = @"MapViewCell";
     static NSString *TimerCellIdentifier = @"TimerCell";
+    static NSString *NotesCellIdentifier = @"NotesCell";
     
     UITableViewCell *cell = nil;
     if (indexPath.section == 1) {
@@ -182,8 +206,10 @@
     } else {
         if (indexPath.row == 0) {
             cell = cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        } else {
+        } else if (indexPath.row == 1) {
             cell = cell = [tableView dequeueReusableCellWithIdentifier:TimerCellIdentifier];
+        } else if (indexPath.row == 2) {
+            cell = [tableView dequeueReusableCellWithIdentifier:NotesCellIdentifier];
         }
     }
     
@@ -195,9 +221,10 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        NSString *label = (NSString *)[[self.dataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        NSString *labelText = (NSString *)[[self.dataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+                
         if (indexPath.row == 0) {
-            cell.textLabel.text = label;
+            cell.textLabel.text = labelText;
             if (self.car != nil) {
                 cell.detailTextLabel.text = self.car.carLabel;
             } else {
@@ -205,9 +232,17 @@
             }
         } else if (indexPath.row == 1) { //TIME LIMIT
             UILabel *label = (UILabel *)[cell viewWithTag:1];
-            label.text = self.timeLabel;
-            
+            label.text = [self labelForTimeCell];
+            UIImageView *imageView = (UIImageView *)[cell viewWithTag:3];
+            imageView.hidden = !self.reminderSet;
             //cell.detailTextLabel.text = self.timeLabel;
+        } else if (indexPath.row == 2) {
+            //don't do anything yet
+            CHEditTableViewCell *chCell = (CHEditTableViewCell *)cell;
+            //chCelll.label.text = NOTES_LABEL;
+            chCell.key = self.NOTES_KEY;
+            chCell.delegate = self;
+            chCell.textField.text = self.notes;
         }
     }
     
@@ -223,6 +258,16 @@
     }
 }
 
+-(NSString *)labelForTimeCell {
+    if (self.endDate != nil) {
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"EEE MM/dd 'at' HH:mm"];
+        return [df stringFromDate:self.endDate];
+    } else {
+        return self.timeLabel;
+    }
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	
 	if(section == 0)
@@ -233,12 +278,24 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 ) {
-        return 200.0;
+        return 180.0;
     } else {
         return 44.0;
     }
 }
 
+- (void) toggleParkButton {
+    UIBarButtonItem *parkButton = self.navigationItem.rightBarButtonItem;
+    parkButton.enabled = (self.car != nil && self.location != nil);
+}
+             
+-(BOOL) meterIsSet {
+    return self.timeLimit > 0;
+}
+
+-(BOOL) calendarReminderIsSet {
+    return self.endDate != nil;
+}
 
 #pragma mark - View lifecycle
 
@@ -254,7 +311,7 @@
 {
     [super viewDidLoad];
     
-    self.parkingAttrs = [NSArray arrayWithObjects:@"Car", @"Time Limit", nil];
+    self.parkingAttrs = [NSArray arrayWithObjects:@"Car", @"Time Limit", @"Notes", nil];
     self.locationAttrs = [NSArray arrayWithObjects:@"Location", nil];
     self.dataSource = [NSArray arrayWithObjects:self.parkingAttrs, self.locationAttrs, nil];
     
@@ -262,9 +319,16 @@
     self.tableView.delegate = self;
     
     self.timeLabel = @"None";
+    self.reminderSet = NO;
 
     self.car = [[CarManager sharedCarManager] getDefaultCar];
+    self.NOTES_KEY = @"Notes";
     
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [self toggleParkButton];
 }
 
 - (void)viewDidUnload

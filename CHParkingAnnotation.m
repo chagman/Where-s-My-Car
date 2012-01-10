@@ -43,7 +43,13 @@
 
 - (NSString *)subtitle {
     if (self.parkingSpot != nil){
-        return [[CarManager sharedCarManager] timeRemainingForSpot:self.parkingSpot];
+        NSString *timeRemaining = [[CarManager sharedCarManager] timeRemainingForSpot:self.parkingSpot];
+        NSLog(@"Notes: %@", self.parkingSpot.notes);
+        if (self.parkingSpot.notes != nil) {
+            return [NSString stringWithFormat:@"Notes: %@ \n%@", self.parkingSpot.notes, timeRemaining];
+        } else {
+            return timeRemaining; 
+        }
     } else {
         return @"None";
     }

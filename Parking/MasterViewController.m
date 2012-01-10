@@ -146,6 +146,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:selectedObject];
+    } else if ([[segue identifier] isEqualToString:@"addCar"]) {
+        CHAddCarView *view = (CHAddCarView *)[segue destinationViewController];
+        view.delegate = self;
     }
 }
 
@@ -281,6 +284,14 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+}
+
+-(void)addedCar:(CHCar *)car {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
 
 @end

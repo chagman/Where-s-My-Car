@@ -47,30 +47,16 @@
     
     if (annotation==self.mapView.userLocation)
         return nil;
-    
-    /*MKPinAnnotationView *customPinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-    customPinView.pinColor = MKPinAnnotationColorPurple;
-    customPinView.animatesDrop = YES;
-    customPinView.canShowCallout = YES;
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-	[rightButton addTarget:self action:@selector(annotationViewClick:) forControlEvents:UIControlEventTouchUpInside];
-	customPinView.rightCalloutAccessoryView = rightButton;
-    return customPinView;
-     */
-    
+      
     MKAnnotationView *customAnnotationView=[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     //Set the pin image
-    UIImage *pinImage = [UIImage imageNamed:@"meterPinOp2.png"];
+    UIImage *pinImage = [UIImage imageNamed:@"meterPin.png"];
 	[customAnnotationView setImage:pinImage];
     customAnnotationView.canShowCallout = YES;
     //Set the icon in the callout
     UIImageView *leftIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"whiteCar.png"]];
 	customAnnotationView.leftCalloutAccessoryView = leftIconView;
-    //Set the action for the detail disclosure
-    //UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-	//[rightButton addTarget:self action:@selector(annotationViewClick:) forControlEvents:UIControlEventTouchUpInside];
-	//customAnnotationView.rightCalloutAccessoryView = rightButton;
-	
+	customAnnotationView.centerOffset = CGPointMake(0, -27);
     return customAnnotationView;
 
     
@@ -92,9 +78,13 @@
     CLLocationCoordinate2D northEast = southWest;
     
     CLLocation *userLocation = self.mapView.userLocation.location;
-    if (userLocation == nil) {
+    if (userLocation == nil && self.parkingSpot != nil) {
         NSLog(@"UserLocation is null");
         return MKCoordinateRegionMakeWithDistance(self.parkingSpot.location, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);     
+    }
+    
+    if (userLocation != nil && self.parkingSpot == nil) {
+        return MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);     
     }
     
     southWest.latitude = MIN(southWest.latitude, userLocation.coordinate.latitude);
@@ -106,15 +96,12 @@
     CLLocation *locSouthWest = [[CLLocation alloc] initWithLatitude:southWest.latitude longitude:southWest.longitude];
     CLLocation *locNorthEast = [[CLLocation alloc] initWithLatitude:northEast.latitude longitude:northEast.longitude];
     
-    // This is a diag distance (if you wanted tighter you could do NE-NW or NE-SE)
-    CLLocationDistance meters = [locSouthWest distanceFromLocation:locNorthEast];
-    
     MKCoordinateRegion region;
     region.center.latitude = (southWest.latitude + northEast.latitude) / 2.0;
     region.center.longitude = (southWest.longitude + northEast.longitude) / 2.0;
     
-    region.span.latitudeDelta = meters / 111319.5;
-    region.span.longitudeDelta = 0.0;
+    region.span.latitudeDelta = fabs(northEast.latitude - southWest.latitude) * 1.1; 
+    region.span.longitudeDelta = fabs(northEast.longitude - southWest.longitude) * 1.1;
     
     return region;
 }
@@ -126,14 +113,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
     [self.mapView setDelegate:self];
-    //[self.mapView.userLocation addObserver:self  
-	//							forKeyPath:@"location"  
-	//							   options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld)  
-	//							   context:NULL];
 	self.mapView.showsUserLocation = YES;
     
-    //[self startStandardUpdates];
+    [self startStandardUpdates];
     
     // 1
     CLLocationCoordinate2D zoomLocation;
@@ -141,6 +125,12 @@
     
     CHParkingSpot *spot = [[CarManager sharedCarManager] getMostRecentSpot];
     MKCoordinateRegion region;
+    
+    if (spot == nil && 
+        self.mapView.userLocation.coordinate.latitude == 0 && 
+        self.mapView.userLocation.coordinate.longitude == 0) {
+        return;
+    }
     
     self.parkingSpot = spot;
     if (spot == nil) {
@@ -233,8 +223,14 @@
 // Delegate method from the CLLocationManagerDelegate protocol.
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation
-{
+           fromLocation:(CLLocation *)oldLocation {
+    if (oldLocation == nil) {
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+        MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:region];                
+        [self.mapView setRegion:adjustedRegion animated:YES];
+        
+    }
+    
     // If it's a relatively recent event, turn off updates to save power
     NSDate* eventDate = newLocation.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
@@ -242,6 +238,7 @@
         NSLog(@"latitude %+.6f, longitude %+.6f\n",
               newLocation.coordinate.latitude,
               newLocation.coordinate.longitude);
+        
     }
     // else skip the event and process the next one.
 }

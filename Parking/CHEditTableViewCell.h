@@ -18,7 +18,7 @@
 
 @end
 
-@interface CHEditTableViewCell : UITableViewCell {
+@interface CHEditTableViewCell : UITableViewCell <UITextFieldDelegate> {
     UITextField *_textField;  
     __weak id <CHEditTableViewCellDelegate> _delegate;
     UILabel *_label;

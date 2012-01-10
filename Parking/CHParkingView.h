@@ -12,6 +12,7 @@
 #import "CHTimeTabBar.h"
 #import <CoreLocation/CoreLocation.h>
 #import "CHParkingMapSelectLocation.h"
+#import "CHEditTableViewCell.h"
 
 @class CHCar;
 @class CHParkingSpot;
@@ -22,7 +23,7 @@
 
 @end
 
-@interface CHParkingView : UITableViewController <CHCarPickerDelegate, CHParkingMapViewCellDelegate, CHMeterViewDelegate, CHParkingMapSelectLocationDelegate> {
+@interface CHParkingView : UITableViewController <CHCarPickerDelegate, CHParkingMapViewCellDelegate, CHMeterViewDelegate, CHParkingMapSelectLocationDelegate, CHEditTableViewCellDelegate> {
     
     NSArray *_parkingAttrs;
     NSArray *_locationAttrs;
@@ -35,6 +36,7 @@
     NSDate *_endDate;
     
     NSInteger _timeLimit;
+    NSString *_notes;
     
     __weak id<CHParkingViewDelegate> _parkingDelegate;
 }
@@ -48,6 +50,7 @@
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *endDate;
 @property (nonatomic) NSInteger timeLimit;
+@property (strong, nonatomic) NSString *notes;
 
 @property (weak) id<CHParkingViewDelegate> parkingDelegate;
 
