@@ -12,11 +12,12 @@
 
 @implementation CHReminderView
 
-@synthesize picker=_picker, clockLabel=_clockLabel, dateFormatter=_dateFormatter;
+@synthesize picker=_picker, clockLabel=_clockLabel, dateFormatter=_dateFormatter, initialDate=_initialDate;
 
 -(IBAction)valueDidChange:(id)sender {
     NSLog(@"Value changed!");
     
+    self.initialDate = self.picker.date;
     //df.dateStyle = NSDateFormatterShortStyle;
     self.clockLabel.text = [self.dateFormatter stringFromDate:self.picker.date];
 	
@@ -62,10 +63,9 @@
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateFormat:REMINDER_DATE_FORMAT];
     
-    NSDate *now = self.picker.date;
-    
-    self.clockLabel.text = [self.dateFormatter stringFromDate:now];
-    //self.picker.date = now;
+    NSDate *date = (self.initialDate != nil) ? self.initialDate : [[NSDate alloc] init];
+    self.picker.date = date;
+    self.clockLabel.text = [self.dateFormatter stringFromDate:self.picker.date];
     
     //UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
     CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -75,10 +75,6 @@
     gradient.opacity = .3;
     
     [self.view.layer insertSublayer:gradient above:0];
-    //[self.clockLabel.layer insertSublayer:gradient atIndex:0];
-    
-    //Set the label properties and glow params
-    //self.clockLabel.textColor = ;
     [self.clockLabel setNewGlowColor:[UIColor colorWithRed:0.20 green:0.70 blue:1.0 alpha:1.0]];
     self.clockLabel.glowOffset = CGSizeMake(0.0, 0.0);
     self.clockLabel.glowAmount = 20.0;

@@ -15,12 +15,14 @@
     CHGlowLabel *_clockLabel;
 
     NSDateFormatter *_dateFormatter;
+    NSDate *_initialDate;
 
 }
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *picker;
 @property (strong, nonatomic) IBOutlet CHGlowLabel *clockLabel;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) NSDate *initialDate;
 
 -(IBAction)valueDidChange:(id)sender;
 -(NSDate *)currentTime;

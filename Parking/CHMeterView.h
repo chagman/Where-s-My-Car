@@ -18,14 +18,18 @@
     
     NSDateFormatter *_dateFormatter;
     
+    NSString *_initialTime;
+    
 }
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *picker;
 @property (strong, nonatomic) IBOutlet CHGlowLabel *clockLabel;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) NSString *initialTime;
 
 -(IBAction)valueDidChange:(id)sender;
 -(NSDate *)currentTime;
 -(NSInteger)meterTimeInSeconds;
+-(void)setTimeWithString:(NSString *)time;
 
 @end

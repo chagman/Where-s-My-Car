@@ -14,6 +14,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "CHMeterView.h"
 #import "CHLocationAnnotation.h"
+#import "CHReminderView.h"
 
 
 @interface CHParkingView () {
@@ -100,7 +101,15 @@
         CHTimeTabBar *tabBar = (CHTimeTabBar *)[segue destinationViewController];
         tabBar.meterDelegate = self;
         
-        
+        if ([self meterIsSet]) {
+            CHMeterView *meterView = (CHMeterView *)[tabBar.viewControllers objectAtIndex:0];
+            meterView.initialTime = self.timeLabel;
+            tabBar.selectedViewController = meterView;
+        } else if ([self calendarReminderIsSet]) {
+            CHReminderView *reminderView = (CHReminderView *)[tabBar.viewControllers objectAtIndex:1];
+            reminderView.initialDate = self.endDate;
+            tabBar.selectedViewController = reminderView;
+        }
                
     } else if ([[segue identifier] isEqualToString:@"tapMapView"]) { 
         CHParkingMapSelectLocation *view = (CHParkingMapSelectLocation *)[segue destinationViewController];

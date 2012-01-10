@@ -16,7 +16,7 @@
 
 @implementation CHMeterView
 
-@synthesize picker=_picker, clockLabel=_clockLabel, dateFormatter=_dateFormatter;
+@synthesize picker=_picker, clockLabel=_clockLabel, dateFormatter=_dateFormatter, initialTime=_initialTime;
 
 
 -(IBAction)valueDidChange:(id)sender {
@@ -24,6 +24,7 @@
     
     //df.dateStyle = NSDateFormatterShortStyle;
     self.clockLabel.text = [self.dateFormatter stringFromDate:self.picker.date];
+    self.initialTime = self.clockLabel.text;
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateStyle:NSDateFormatterFullStyle];
@@ -103,10 +104,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateFormat:METER_DATE_FORMAT];
+    if (self.dateFormatter == nil) {
+        self.dateFormatter = [[NSDateFormatter alloc] init];
+        [self.dateFormatter setDateFormat:METER_DATE_FORMAT];
+    }
     
-    self.clockLabel.text = @"02:00";
+    NSString *label = (self.initialTime != nil) ? self.initialTime : @"02:00";
+    self.clockLabel.text = label;
     self.picker.date = [self.dateFormatter dateFromString:self.clockLabel.text];
     
     //UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
@@ -127,6 +131,11 @@
     
     
     //self.navigationItem.;
+}
+
+-(void)setTimeWithString:(NSString *)time {
+    self.clockLabel.text = time; 
+    self.picker.date = [self.dateFormatter dateFromString:self.clockLabel.text];
 }
 
 

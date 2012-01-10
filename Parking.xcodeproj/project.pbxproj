@@ -16,8 +16,6 @@
 		83365E0B14B9652B00895EC6 /* compassMed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E0314B9652B00895EC6 /* compassMed@2x.png */; };
 		83365E0C14B9652B00895EC6 /* compassSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E0414B9652B00895EC6 /* compassSmall.png */; };
 		83365E0D14B9652B00895EC6 /* compassSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E0514B9652B00895EC6 /* compassSmall@2x.png */; };
-		83365E0E14B9652B00895EC6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E0614B9652B00895EC6 /* Default.png */; };
-		83365E0F14B9652B00895EC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E0714B9652B00895EC6 /* Default@2x.png */; };
 		83365E1014B9652B00895EC6 /* reminderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E0814B9652B00895EC6 /* reminderIcon.png */; };
 		83365E1114B9652B00895EC6 /* reminderIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E0914B9652B00895EC6 /* reminderIcon@2x.png */; };
 		83365E3614BBE90800895EC6 /* meterPinOp2.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E3414BBE90400895EC6 /* meterPinOp2.png */; };
@@ -26,6 +24,8 @@
 		83365E3F14BBE9E800895EC6 /* meterPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E3D14BBE9E800895EC6 /* meterPin@2x.png */; };
 		83365E4214BBECCA00895EC6 /* meterHead.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4014BBECCA00895EC6 /* meterHead.png */; };
 		83365E4314BBECCA00895EC6 /* meterHead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4114BBECCA00895EC6 /* meterHead@2x.png */; };
+		83365E4814BBF85700895EC6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4614BBF85600895EC6 /* Default.png */; };
+		83365E4914BBF85700895EC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4714BBF85700895EC6 /* Default@2x.png */; };
 		833FDE7814AAAB9700FB7AB6 /* CHParkingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 833FDE7714AAAB9700FB7AB6 /* CHParkingView.m */; };
 		833FDE8414AAE26F00FB7AB6 /* CHCarPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 833FDE8314AAE26F00FB7AB6 /* CHCarPickerView.m */; };
 		8346C2B014ACDCFF0093982A /* CHParkingMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8346C2AF14ACDCFF0093982A /* CHParkingMapCell.m */; };
@@ -88,8 +88,6 @@
 		83365E0314B9652B00895EC6 /* compassMed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compassMed@2x.png"; sourceTree = "<group>"; };
 		83365E0414B9652B00895EC6 /* compassSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compassSmall.png; sourceTree = "<group>"; };
 		83365E0514B9652B00895EC6 /* compassSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compassSmall@2x.png"; sourceTree = "<group>"; };
-		83365E0614B9652B00895EC6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		83365E0714B9652B00895EC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		83365E0814B9652B00895EC6 /* reminderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reminderIcon.png; sourceTree = "<group>"; };
 		83365E0914B9652B00895EC6 /* reminderIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reminderIcon@2x.png"; sourceTree = "<group>"; };
 		83365E3414BBE90400895EC6 /* meterPinOp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meterPinOp2.png; sourceTree = "<group>"; };
@@ -98,6 +96,8 @@
 		83365E3D14BBE9E800895EC6 /* meterPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meterPin@2x.png"; sourceTree = "<group>"; };
 		83365E4014BBECCA00895EC6 /* meterHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meterHead.png; sourceTree = "<group>"; };
 		83365E4114BBECCA00895EC6 /* meterHead@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meterHead@2x.png"; sourceTree = "<group>"; };
+		83365E4614BBF85600895EC6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		83365E4714BBF85700895EC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		833FDE7614AAAB9700FB7AB6 /* CHParkingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHParkingView.h; sourceTree = "<group>"; };
 		833FDE7714AAAB9700FB7AB6 /* CHParkingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHParkingView.m; sourceTree = "<group>"; };
 		833FDE8214AAE26F00FB7AB6 /* CHCarPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCarPickerView.h; sourceTree = "<group>"; };
@@ -205,6 +205,8 @@
 		8346C2C914AE20910093982A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				83365E4614BBF85600895EC6 /* Default.png */,
+				83365E4714BBF85700895EC6 /* Default@2x.png */,
 				83365E4014BBECCA00895EC6 /* meterHead.png */,
 				83365E4114BBECCA00895EC6 /* meterHead@2x.png */,
 				83365E3C14BBE9E800895EC6 /* meterPin.png */,
@@ -215,8 +217,6 @@
 				83365E0314B9652B00895EC6 /* compassMed@2x.png */,
 				83365E0414B9652B00895EC6 /* compassSmall.png */,
 				83365E0514B9652B00895EC6 /* compassSmall@2x.png */,
-				83365E0614B9652B00895EC6 /* Default.png */,
-				83365E0714B9652B00895EC6 /* Default@2x.png */,
 				83365E0814B9652B00895EC6 /* reminderIcon.png */,
 				83365E0914B9652B00895EC6 /* reminderIcon@2x.png */,
 				83365DFE14B964DE00895EC6 /* Icon.png */,
@@ -446,8 +446,6 @@
 				83365E0B14B9652B00895EC6 /* compassMed@2x.png in Resources */,
 				83365E0C14B9652B00895EC6 /* compassSmall.png in Resources */,
 				83365E0D14B9652B00895EC6 /* compassSmall@2x.png in Resources */,
-				83365E0E14B9652B00895EC6 /* Default.png in Resources */,
-				83365E0F14B9652B00895EC6 /* Default@2x.png in Resources */,
 				83365E1014B9652B00895EC6 /* reminderIcon.png in Resources */,
 				83365E1114B9652B00895EC6 /* reminderIcon@2x.png in Resources */,
 				83365E3614BBE90800895EC6 /* meterPinOp2.png in Resources */,
@@ -456,6 +454,8 @@
 				83365E3F14BBE9E800895EC6 /* meterPin@2x.png in Resources */,
 				83365E4214BBECCA00895EC6 /* meterHead.png in Resources */,
 				83365E4314BBECCA00895EC6 /* meterHead@2x.png in Resources */,
+				83365E4814BBF85700895EC6 /* Default.png in Resources */,
+				83365E4914BBF85700895EC6 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
