@@ -38,6 +38,8 @@
     NSInteger _timeLimit;
     NSString *_notes;
     
+    BOOL _shouldScheduleReminder;
+    
     __weak id<CHParkingViewDelegate> _parkingDelegate;
 }
 
@@ -51,6 +53,7 @@
 @property (strong, nonatomic) NSDate *endDate;
 @property (nonatomic) NSInteger timeLimit;
 @property (strong, nonatomic) NSString *notes;
+@property (nonatomic) BOOL shouldScheduleReminder;
 
 @property (weak) id<CHParkingViewDelegate> parkingDelegate;
 

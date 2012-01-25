@@ -44,6 +44,12 @@
     return self;
 }
 
+-(void)clearGlow {
+    self.glowOffset = CGSizeMake(0.0, 0.0);
+    self.glowAmount = 0.0;
+    self.glowColor = [UIColor clearColor];
+}
+
 - (void)drawTextInRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);

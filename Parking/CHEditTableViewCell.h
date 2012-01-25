@@ -12,9 +12,8 @@
 
 -(void)editDidFinish:(NSDictionary *)result;
 
-@optional  
-// and the other one is optional (this function has not been used in this tutorial)  
-- (void)editStarted:(UITextField *)field;
+@optional
+-(void)textFieldBecameFirstResponder:(UITextField *)firstResponder;
 
 @end
 
@@ -22,13 +21,16 @@
     UITextField *_textField;  
     __weak id <CHEditTableViewCellDelegate> _delegate;
     UILabel *_label;
-    NSString *_key; 
+    NSString *_key;
+    
+    NSInteger _maxCharLength;
 }
 
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) id <CHEditTableViewCellDelegate> delegate;
 @property (copy, nonatomic) NSString *key;
+@property (nonatomic) NSInteger maxCharLength;
 
 -(IBAction)editingDidFinish:(id)sender;
 

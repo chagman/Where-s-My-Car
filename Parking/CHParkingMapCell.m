@@ -14,13 +14,12 @@
 
 @interface CHParkingMapCell() {
     NSDate *_startLocationDate;
-    BOOL _userDidPickLocation;
 }
 - (BOOL)isValidLocation:(CLLocation *)newLocation
         withOldLocation:(CLLocation *)oldLocation;
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer;
 @property (strong, nonatomic) NSDate *startLocationDate;
-@property (nonatomic) BOOL userDidPickLocation;
+
 @end
 
 @implementation CHParkingMapCell
@@ -60,7 +59,8 @@
     if (!self.userDidPickLocation) {
         [self startStandardUpdates];
     } else {
-        [self moveMapToCoordinate:self.location.coordinate withScale:.25];
+        [self stopStandardUpdates];
+        [self moveMapToCoordinate:self.location.coordinate withScale:.15];
     }
 }
 
@@ -133,18 +133,14 @@
     // If it's a relatively recent event, turn off updates to save power
     NSDate* eventDate = newLocation.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-    if (abs(howRecent) < 15.0)
-    {
-        NSLog(@"latitude %+.6f, longitude %+.6f\n",
-              newLocation.coordinate.latitude,
-              newLocation.coordinate.longitude);
+    if (abs(howRecent) < 5.0 && !self.userDidPickLocation) {
         [self.cellDelegate updateLocation:newLocation];
     }
     // else skip the event and process the next one.
 }
 
 - (void)moveMapToCoordinate:(CLLocationCoordinate2D)coordinate {
-    [self moveMapToCoordinate:coordinate withScale:0.5];
+    [self moveMapToCoordinate:coordinate withScale:0.15];
 }
 
 - (void)moveMapToCoordinate:(CLLocationCoordinate2D)coordinate withScale:(float)miles {
@@ -182,7 +178,7 @@
     //39.446725301147815, -77.988309552988227
     //CLLocationCoordinate2D locCoor = CLLocationCoordinate2DMake(39.446725301147815, -77.988309552988227);
     //Make sure the map is over the location
-    [self moveMapToCoordinate:coordinate withScale:0.25];
+    [self moveMapToCoordinate:coordinate withScale:0.15];
 }
 
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {

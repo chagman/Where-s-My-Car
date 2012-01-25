@@ -20,8 +20,11 @@
 @interface CHParkingView () {
     NSString *_timeLabel;
     BOOL _reminderSet;
+    BOOL _userSetLocation;
     
     NSString *_NOTES_KEY;
+    
+    UITextField *_textField;
 }
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)toggleParkButton;
@@ -32,6 +35,8 @@
 @property (strong, nonatomic) NSString *timeLabel;
 @property (nonatomic) BOOL reminderSet;
 @property (strong, nonatomic) NSString *NOTES_KEY;
+@property (nonatomic) BOOL userSetLocation;
+@property (nonatomic, strong) UITextField *textField;
 
 @end
 
@@ -39,7 +44,7 @@
 
 @synthesize parkingAttrs=_parkingAttrs, dataSource=_dataSource, locationAttrs=_locationAttrs, car=_car, spot=_spot, location=_location, parkingDelegate=_parkingDelegate, reminderSet=_reminderSet, notes=_notes, NOTES_KEY=_NOTES_KEY;
 
-@synthesize startDate=_startDate, endDate=_endDate, timeLimit=_timeLimit, timeLabel=_timeLabel;
+@synthesize startDate=_startDate, endDate=_endDate, timeLimit=_timeLimit, timeLabel=_timeLabel, userSetLocation=_userSetLocation, shouldScheduleReminder=_shouldScheduleReminder, textField=_textField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,16 +66,21 @@
 #pragma mark - MapView methods
 
 -(void)updateLocation:(CLLocation *)location {
-    self.location = location;
-    [self toggleParkButton];
-    NSLog(@"New location: latitude %+.6f, longitude %+.6f\n",
-          location.coordinate.latitude,
-          location.coordinate.longitude);
+    //If the user has not set their location
+    if (!self.userSetLocation) {
+        self.location = location;
+        [self toggleParkButton];
+    }
+
 }
 
 #pragma mark - transistion methods
 
 -(IBAction)done:(id)sender {
+    
+    if (self.textField != nil) {
+        [self.textField resignFirstResponder];
+    }
     
     if (self.car == nil) {
         //TODO handle error
@@ -79,11 +89,11 @@
     } else {
         CHParkingSpot *spot;
         if ([self calendarReminderIsSet]) {
-            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location endDate:self.endDate notes:self.notes];
+            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location endDate:self.endDate notes:self.notes reminder:self.reminderSet];
         } else if ([self meterIsSet]){
-            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location meterLimitInSeconds:self.timeLimit notes:self.notes];
+            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location meterLimitInSeconds:self.timeLimit notes:self.notes reminder:self.reminderSet];
         } else {
-            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location notes:self.notes]; 
+            spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location notes:self.notes reminder:self.reminderSet]; 
         }
         [self.parkingDelegate addParkingSpotToMap:spot];
     }
@@ -104,16 +114,21 @@
         if ([self meterIsSet]) {
             CHMeterView *meterView = (CHMeterView *)[tabBar.viewControllers objectAtIndex:0];
             meterView.initialTime = self.timeLabel;
+            meterView.isReminderOn = self.reminderSet;
             tabBar.selectedViewController = meterView;
         } else if ([self calendarReminderIsSet]) {
             CHReminderView *reminderView = (CHReminderView *)[tabBar.viewControllers objectAtIndex:1];
             reminderView.initialDate = self.endDate;
             tabBar.selectedViewController = reminderView;
+            reminderView.isReminderOn = self.reminderSet;
         }
                
     } else if ([[segue identifier] isEqualToString:@"tapMapView"]) { 
         CHParkingMapSelectLocation *view = (CHParkingMapSelectLocation *)[segue destinationViewController];
         view.delegate = self;
+        if (self.userSetLocation && self.location != nil) {
+            view.currentSelectedLocation = [[CHLocationAnnotation alloc] initWithCoordinate:self.location.coordinate];
+        }
     } else {
         NSLog(@"Segue with identifier:%@ called", [segue identifier]);
     }
@@ -129,10 +144,8 @@
     [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
--(void)didPickTimeLimitWithEndDate:(NSDate *)endDate label:(NSString *)label{
-    NSLog(@"Time limit is set!");
-    
-    self.reminderSet = YES;
+-(void)didPickTimeLimitWithEndDate:(NSDate *)endDate label:(NSString *)label reminder:(BOOL)isSet{
+    self.reminderSet = isSet;
     self.endDate = endDate;
     self.timeLabel = label;
     
@@ -145,11 +158,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)didPickMeterTimeLimit:(NSInteger)meterTime label:(NSString *)label{
-    NSLog(@"Meter limit is set!");
+-(void)didPickMeterTimeLimit:(NSInteger)meterTime label:(NSString *)label reminder:(BOOL)isSet{
     self.timeLimit = meterTime;
     self.timeLabel = label;
-    self.reminderSet = YES;
+    self.reminderSet = isSet;
     //clear the end date
     self.endDate = nil;
     
@@ -167,10 +179,12 @@
 }
 
 - (void)setUserPickedLocation:(CLLocationCoordinate2D)coordinate {
+    self.userSetLocation = YES;
     //Set our new location
     CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-    [self updateLocation:location];
-    
+    self.location = location;
+    [self toggleParkButton];
+        
     //TODO create member variable initiated during viewDidLoad to handle where cells are
     NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:1]];
     [[self tableView] reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationNone];
@@ -183,9 +197,12 @@
     NSString *key = (NSString*)[result objectForKey:@"key"];
     if ([key isEqualToString:self.NOTES_KEY]){
         NSString *notes = (NSString *)[result objectForKey:@"value"];
-        NSLog(@"%@", notes);
         self.notes = notes;
     }
+}
+
+-(void)textFieldBecameFirstResponder:(UITextField *)firstResponder{
+    self.textField = firstResponder;
 }
 
 
@@ -223,7 +240,6 @@
     }
     
     [self configureCell:cell atIndexPath:indexPath];
-    NSLog(@"Getting row %d of sections %d", indexPath.row, indexPath.section);
     return cell;
 }
 
@@ -252,16 +268,22 @@
             chCell.key = self.NOTES_KEY;
             chCell.delegate = self;
             chCell.textField.text = self.notes;
+            chCell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+            chCell.maxCharLength = 25;
         }
     }
     
     if (indexPath.section == 1) {
-        ((CHParkingMapCell *)cell).cellDelegate = self;
-        [((CHParkingMapCell *)cell) configureMapViewCell];
+        CHParkingMapCell *mapCell = (CHParkingMapCell *)cell;
+        mapCell.cellDelegate = self;
+        mapCell.userDidPickLocation = self.userSetLocation;
         
-        if (self.location != nil) {
+        [mapCell configureMapViewCell];
+        
+        if (self.location != nil && self.userSetLocation) {
             //Get our map cell, tell it to add the pin
             [((CHParkingMapCell *)cell) setUserPickedLocation:self.location.coordinate];
+            
         }
         
     }

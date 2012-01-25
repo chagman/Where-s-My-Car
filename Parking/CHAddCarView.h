@@ -25,6 +25,8 @@
     NSNumber *_editingRow;
     
     __weak id<CHAddCarViewDelegate> _delegate;
+    
+    CHCar *_car;
 }
 
 @property (strong, nonatomic) NSDictionary *attributes;
@@ -32,6 +34,7 @@
 @property (strong, nonatomic) NSMutableDictionary *datasource;
 @property (strong, nonatomic) NSNumber *editingRow;
 @property (weak) id<CHAddCarViewDelegate> delegate;
+@property (strong, nonatomic) CHCar *car;
 
 -(IBAction)save:(id)sender;
 -(IBAction)valueChangedinCell:(id)sender;

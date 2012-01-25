@@ -10,8 +10,8 @@
 
 @protocol CHMeterViewDelegate <NSObject>
 
--(void)didPickTimeLimitWithEndDate:(NSDate *)endDate label:(NSString *)label;
--(void)didPickMeterTimeLimit:(NSInteger)meterTime label:(NSString *)label;
+-(void)didPickTimeLimitWithEndDate:(NSDate *)endDate label:(NSString *)label reminder:(BOOL)isSet;
+-(void)didPickMeterTimeLimit:(NSInteger)meterTime label:(NSString *)label reminder:(BOOL)isSet;
 
 @end
 

@@ -29,8 +29,9 @@
 }
 
 -(IBAction)toggle:(id)sender{
+    NSNumber *switchState = [NSNumber numberWithBool:self.defaultSwitch.isOn];
     
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.key, @"key", self.defaultSwitch.isOn, @"value", nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.key, @"key", switchState, @"value", nil];
     
     //NSDictionary *dict = [NSDictionary dictionaryWithObject:self.textField.text forKey:self.key];
     

@@ -44,15 +44,15 @@
 - (NSString *)subtitle {
     if (self.parkingSpot != nil){
         NSString *timeRemaining = [[CarManager sharedCarManager] timeRemainingForSpot:self.parkingSpot];
-        NSLog(@"Notes: %@", self.parkingSpot.notes);
-        if (self.parkingSpot.notes != nil) {
-            return [NSString stringWithFormat:@"Notes: %@ \n%@", self.parkingSpot.notes, timeRemaining];
-        } else {
-            return timeRemaining; 
+        NSString *notes = (self.parkingSpot.notes != nil) ? [self.parkingSpot.notes stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : @"";
+        
+        if (![notes isEqualToString:@""]) {
+                return [NSString stringWithFormat:@"Notes: %@. \n%@", notes , timeRemaining];
         }
-    } else {
-        return @"None";
+        
+        return timeRemaining;
     }
+    return nil;
 }
 
 @end

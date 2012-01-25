@@ -10,7 +10,7 @@
 
 @implementation CHEditTableViewCell
 
-@synthesize label=_label, key=_key, delegate=_delegate, textField=_textField;
+@synthesize label=_label, key=_key, delegate=_delegate, textField=_textField, maxCharLength=_maxCharLength;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -19,7 +19,7 @@
         // Initialization code
         self.textField.delegate =self;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
-        
+        self.maxCharLength = -1;
     }
     return self;
 }
@@ -46,11 +46,26 @@
     }
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if ([self.delegate respondsToSelector:@selector(textFieldBecameFirstResponder:)]) {
+        [self.delegate textFieldBecameFirstResponder:self.textField];
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     if (theTextField == self.textField) {
         [theTextField resignFirstResponder];
     }
     return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (self.maxCharLength <= 0) {
+        return YES;
+    }
+    
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return newLength <= self.maxCharLength;
 }
 
 @end

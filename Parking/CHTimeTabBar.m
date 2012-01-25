@@ -21,10 +21,10 @@
     UIViewController *visableViewController = self.selectedViewController;
     if([CHMeterView class] ==  [visableViewController class]) {
         CHMeterView *meter = (CHMeterView *)visableViewController;
-        [self.meterDelegate didPickMeterTimeLimit:meter.meterTimeInSeconds label:meter.clockLabel.text];
+        [self.meterDelegate didPickMeterTimeLimit:meter.meterTimeInSeconds label:meter.clockLabel.text reminder:meter.isReminderOn];
     } else if ([CHReminderView class] == [visableViewController class]) {
         CHReminderView *meter = (CHReminderView *)visableViewController;
-        [self.meterDelegate didPickTimeLimitWithEndDate:meter.picker.date label:meter.clockLabel.text];
+        [self.meterDelegate didPickTimeLimitWithEndDate:meter.picker.date label:meter.clockLabel.text reminder:meter.isReminderOn];
     }
 }
 

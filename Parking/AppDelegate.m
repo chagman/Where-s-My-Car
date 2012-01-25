@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
+#import "CarManager.h"
 
 @implementation AppDelegate
 
@@ -20,11 +21,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    UITabBarController *tabBarControllor = (UITabBarController *)self.window.rootViewController;
+    //UITabBarController *tabBarControllor = (UITabBarController *)self.window.rootViewController;
     
     //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
     //controller.managedObjectContext = self.managedObjectContext;
+    if ([[CarManager sharedCarManager] getDefaultCar] == nil) {
+        [[CarManager sharedCarManager] addCarWithMake:@"Delorean" model:@"DMC-12" year:@"1985" color:@"Gray"];
+    }
     return YES;
 }
 							

@@ -2,8 +2,8 @@
 //  CHCar.m
 //  Parking
 //
-//  Created by Charles Hagman on 12/28/11.
-//  Copyright (c) 2011 Deloitte. All rights reserved.
+//  Created by Charles Hagman on 1/16/12.
+//  Copyright (c) 2012 Deloitte. All rights reserved.
 //
 
 #import "CHCar.h"
@@ -17,6 +17,7 @@
 @dynamic make;
 @dynamic model;
 @dynamic nickname;
+@dynamic year;
 @dynamic spots;
 
 -(NSString *)carLabel {

@@ -12,9 +12,17 @@
 #import "CHCar.h"
 #import "CHEditTableViewCell.h"
 
+@interface CHAddCarView() {
+    UITextField *_textField;
+}
+
+@property (strong, nonatomic) UITextField *textField;
+-(BOOL)enableSaveButton;
+@end
+
 @implementation CHAddCarView
 
-@synthesize attributes=_attributes, labels=_labels, datasource=_datasource, editingRow=_editingRow, delegate=_delegate;
+@synthesize attributes=_attributes, labels=_labels, datasource=_datasource, editingRow=_editingRow, delegate=_delegate, car=_car, textField=_textField;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,11 +46,18 @@
 -(void)editDidFinish:(NSDictionary *)result {
     NSLog(@"delegate called with key %@ and value %@", [result objectForKey:@"key"], [result objectForKey:@"value"]);
     [self.datasource setObject:[result objectForKey:@"value"] forKey:[result objectForKey:@"key"]];
+    self.navigationItem.rightBarButtonItem.enabled = [self enableSaveButton];
+}
+
+-(void)textFieldBecameFirstResponder:(UITextField *)firstResponder {
+    self.textField = firstResponder;
 }
 
 #pragma mark - save
 
 - (IBAction)save:(id)sender {
+    
+    [self.textField resignFirstResponder];
     
     //Create the car
     NSString *make = [self.datasource objectForKey:[self.labels objectAtIndex:0]];
@@ -50,8 +65,23 @@
     NSString *year = [self.datasource objectForKey:[self.labels objectAtIndex:2]];
     NSString *color = [self.datasource objectForKey:[self.labels objectAtIndex:3]];
     
-    CHCar *car = [[CarManager sharedCarManager] addCarWithMake:make model:model year:year color:color];
-    [self.delegate addedCar:car];
+    
+    if (self.car != nil) {
+        self.car.make = make;
+        self.car.model = model;
+        self.car.year = year;
+        self.car.color = color;
+        NSError *error = nil;
+        if (![self.car.managedObjectContext save:&error]){
+            //TODO handle error
+        }
+        
+    } else {
+        CHCar *car = [[CarManager sharedCarManager] addCarWithMake:make model:model year:year color:color];
+        self.car = car;
+    }
+    
+    [self.delegate addedCar:self.car];
 }
 
 -(IBAction)valueChangedinCell:(id)sender {
@@ -75,11 +105,33 @@
     NSArray *exampleAttrs = [NSArray arrayWithObjects:@"e.g. DeLorean", @"e.g. DMC-12", @"1985", @"Gray", nil];
     self.attributes = [NSDictionary dictionaryWithObjects:exampleAttrs forKeys:self.labels];
     
-    NSArray *emptyValues = [NSArray arrayWithObjects:@"", @"", @"", @"", nil];
-    self.datasource = [NSMutableDictionary dictionaryWithObjects:emptyValues forKeys:self.labels];
+    if (self.car != nil) {
+        NSArray *carAttrs = [NSArray arrayWithObjects:self.car.make, self.car.model, self.car.year, self.car.color, nil];
+        self.datasource = [NSMutableDictionary dictionaryWithObjects:carAttrs forKeys:self.labels];
+    } else {
+        NSArray *emptyValues = [NSArray arrayWithObjects:@"", @"", @"", @"", nil];
+        self.datasource = [NSMutableDictionary dictionaryWithObjects:emptyValues forKeys:self.labels];
+    }
     
     self.navigationItem.title = @"Enter Details";
+    self.navigationItem.rightBarButtonItem.enabled = [self enableSaveButton];
     
+}
+
+-(BOOL)enableSaveButton {
+    
+    //TODO fix this to require all the fields to be filled in
+    if (self.car != nil) {
+        return YES;
+    }
+    
+    NSArray *values = [self.datasource objectsForKeys:self.labels notFoundMarker:@"EMPTY"];
+    for (NSString *data in values) {
+        if ([data isEqualToString:@""]) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 - (void)viewDidUnload
@@ -142,52 +194,19 @@
     cell.key =  cell.label.text;
     cell.textField.placeholder = [self.attributes objectForKey:cell.key];
     cell.delegate = self;
+    cell.maxCharLength = 25;
     if ([cell.key isEqualToString:@"Year"]) {
+        cell.maxCharLength = 4;
         cell.textField.keyboardType = UIKeyboardTypeNumberPad;
+    }
+    cell.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    
+    if (self.car != nil) {
+        cell.textField.text = [self.datasource objectForKey:cell.key];
     }
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

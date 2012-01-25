@@ -157,8 +157,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"pickedCar"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        NSLog(@"picked car");
+        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         //[[segue destinationViewController] setDetailItem:selectedObject];
     } else if ([[segue identifier] isEqualToString:@"addCarSegue"]) {
         [[segue destinationViewController] setDelegate:self];

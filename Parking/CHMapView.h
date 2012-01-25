@@ -11,6 +11,7 @@
 #import "CHParkingView.h"
 
 @class CHParkingSpot;
+@class CHParkingAnnotation;
 
 #define METERS_PER_MILE 1609.344
 

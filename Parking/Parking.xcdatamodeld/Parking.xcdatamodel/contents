@@ -6,12 +6,14 @@
         <attribute name="make" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="spots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CHParkingSpot" inverseName="car" inverseEntity="CHParkingSpot" syncable="YES"/>
     </entity>
     <entity name="CHParkingSpot" representedClassName="CHParkingSpot" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isReminderSet" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,7 +28,7 @@
     </entity>
     <elements>
         <element name="CHCar" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="CHParkingSpot" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="CHParkingSpot" positionX="160" positionY="192" width="128" height="225"/>
         <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
     </elements>
 </model>

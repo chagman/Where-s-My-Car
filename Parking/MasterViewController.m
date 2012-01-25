@@ -8,7 +8,6 @@
 
 #import "MasterViewController.h"
 
-#import "DetailViewController.h"
 #import "AppDelegate.h"
 #import "CHCar.h"
 
@@ -143,12 +142,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setDetailItem:selectedObject];
+        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        //[[segue destinationViewController] setDetailItem:selectedObject];
     } else if ([[segue identifier] isEqualToString:@"addCar"]) {
         CHAddCarView *view = (CHAddCarView *)[segue destinationViewController];
         view.delegate = self;
+    } else if ([[segue identifier] isEqualToString:@"editCar"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        CHCar *selectedCar = (CHCar *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+        CHAddCarView *view = (CHAddCarView *)[segue destinationViewController];
+        view.delegate = self;
+        view.car = selectedCar;
     }
 }
 

@@ -8,18 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "CHGlowLabel.h"
+#import "CHSharedReminderViewController.h"
 
 #define METER_DATE_FORMAT @"HH:mm"
 #define REMINDER_DATE_FORMAT @"EEE MMM dd 'at\n' hh:mm a"
 
-@interface CHMeterView : UIViewController {
+@interface CHMeterView : CHSharedReminderViewController {
     UIDatePicker *_picker;
     CHGlowLabel *_clockLabel;
     
     NSDateFormatter *_dateFormatter;
-    
     NSString *_initialTime;
-    
 }
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *picker;

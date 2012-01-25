@@ -32,9 +32,9 @@
 - (CHCar *)getDefaultCar;
 
 //Parking Methods
-- (CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location endDate:(NSDate *)endDate notes:(NSString *)notes;
-- (CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location meterLimitInSeconds:(NSInteger)seconds notes:(NSString *)notes;
-- (CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location notes:(NSString *)notes;
+- (CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location endDate:(NSDate *)endDate notes:(NSString *)notes reminder:(BOOL)isSet;
+- (CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location meterLimitInSeconds:(NSInteger)seconds notes:(NSString *)notes reminder:(BOOL)isSet;
+- (CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location notes:(NSString *)notes reminder:(BOOL)isSet;
 - (CHParkingSpot *)getMostRecentSpot;
 - (NSString *) timeRemainingForSpot:(CHParkingSpot *)spot;
 

@@ -14,6 +14,7 @@
 @interface CarManager()
 -(void)scheduleNotificationForSpot:(CHParkingSpot *)spot interval:(int)minutesBefore;
 - (void)cancelNotificationsAssociatedWithCar:(CHCar *)car;
+- (CHCar *)getMostRecentCar;
 @end
 
 @implementation CarManager 
@@ -30,6 +31,7 @@ static CarManager *sharedCarManagerInstance = nil;
     car.make = make;
     car.model = model;
     car.color = color;
+    car.year = year;
     car.defaultCar = [NSNumber numberWithBool:YES];
     
     // Commit the change.
@@ -60,7 +62,7 @@ static CarManager *sharedCarManagerInstance = nil;
     return car;
 }
 
--(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location notes:(NSString *)notes {
+-(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location notes:(NSString *)notes reminder:(BOOL)isSet{
     NSManagedObjectContext *context = self.managedObjectContext;
     CHParkingSpot *spot = (CHParkingSpot *)[NSEntityDescription insertNewObjectForEntityForName:@"CHParkingSpot" inManagedObjectContext:context];
     spot.car = car;
@@ -68,6 +70,10 @@ static CarManager *sharedCarManagerInstance = nil;
     spot.longitude = [NSNumber numberWithDouble:location.coordinate.longitude];
     spot.startDate = [[NSDate alloc] init];
     spot.notes = notes;
+    spot.isReminderSet = [NSNumber numberWithBool:isSet];
+    
+    //Cancel notifications associated to this car
+    [self cancelNotificationsAssociatedWithCar:spot.car];
     
     NSError *error = nil;
     if (![context save:&error]){
@@ -77,7 +83,7 @@ static CarManager *sharedCarManagerInstance = nil;
 }
 
 
--(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location endDate:(NSDate *)endDate notes:(NSString *)notes {
+-(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location endDate:(NSDate *)endDate notes:(NSString *)notes reminder:(BOOL)isSet {
     NSManagedObjectContext *context = self.managedObjectContext;
     CHParkingSpot *spot = (CHParkingSpot *)[NSEntityDescription insertNewObjectForEntityForName:@"CHParkingSpot" inManagedObjectContext:context];
     spot.car = car;
@@ -86,8 +92,14 @@ static CarManager *sharedCarManagerInstance = nil;
     spot.startDate = [[NSDate alloc] init];
     spot.endDate = endDate;
     spot.notes = notes;
+    spot.isReminderSet = [NSNumber numberWithBool:isSet];
     
-    [self scheduleNotificationForSpot:spot interval:15];
+    if (isSet)  {
+        [self scheduleNotificationForSpot:spot interval:15];
+    } else {
+        //Cancel notifications associated to this car
+        [self cancelNotificationsAssociatedWithCar:spot.car];
+    }
     
     NSError *error = nil;
     if (![context save:&error]){
@@ -96,7 +108,7 @@ static CarManager *sharedCarManagerInstance = nil;
     return spot;
 }
 
--(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location meterLimitInSeconds:(NSInteger)seconds notes:(NSString *)notes{
+-(CHParkingSpot *)parkWithCar:(CHCar *)car location:(CLLocation *)location meterLimitInSeconds:(NSInteger)seconds notes:(NSString *)notes reminder:(BOOL)isSet{
     NSManagedObjectContext *context = self.managedObjectContext;
     CHParkingSpot *spot = (CHParkingSpot *)[NSEntityDescription insertNewObjectForEntityForName:@"CHParkingSpot" inManagedObjectContext:context];
     spot.car = car;
@@ -106,8 +118,14 @@ static CarManager *sharedCarManagerInstance = nil;
     spot.endDate = [spot.startDate dateByAddingTimeInterval:seconds];
     spot.timeLimit = [NSNumber numberWithInteger:seconds];
     spot.notes = notes;
+    spot.isReminderSet = [NSNumber numberWithBool:isSet];
     
-    [self scheduleNotificationForSpot:spot interval:15];
+    if (isSet) {
+        [self scheduleNotificationForSpot:spot interval:15];
+    } else {
+        //Cancel notifications associated to this car
+        [self cancelNotificationsAssociatedWithCar:spot.car];
+    }
     
     NSError *error = nil;
     if (![context save:&error]){
@@ -140,11 +158,34 @@ static CarManager *sharedCarManagerInstance = nil;
 
 -(CHCar *)getDefaultCar {
     CHParkingSpot *spot = [self getMostRecentSpot];
-    if (spot == nil) {
+    if (spot != nil) {
+        return spot.car;
+    }
+    
+    CHCar * car = [self getMostRecentCar];
+    return car;
+}
+
+-(CHCar *)getMostRecentCar {
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"CHCar" 
+                                                         inManagedObjectContext:self.managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"make" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [request setFetchLimit:1];
+    
+    NSError *error = nil;
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if (array == nil || ([array count] < 1)) {
         return nil;
     }
     
-    return spot.car;
+    return (CHCar*)[array objectAtIndex:0];
 }
 
 - (NSString *)timeRemainingForSpot:(CHParkingSpot *)spot {
@@ -208,7 +249,7 @@ static CarManager *sharedCarManagerInstance = nil;
     localNotif.fireDate = [spot.endDate dateByAddingTimeInterval:-(minutesBefore*60)];
     localNotif.timeZone = [NSTimeZone defaultTimeZone];
     localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Meter runs out in %i minutes.", nil), minutesBefore];
-    localNotif.alertAction = NSLocalizedString(@"Add Time", nil);
+    localNotif.alertAction = NSLocalizedString(@"Okay", nil);
     //localNotif.alertLaunchImage = @"meter.png";
     localNotif.soundName = UILocalNotificationDefaultSoundName;
     //localNotif.applicationIconBadgeNumber = 1;

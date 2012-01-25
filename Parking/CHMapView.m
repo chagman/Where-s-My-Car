@@ -40,6 +40,19 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    NSArray *annotations = [self.mapView selectedAnnotations];
+    for (NSObject *obj in annotations) {
+        [self.mapView deselectAnnotation:obj animated:animated];
+    }
+    /*if (self.currentSpotSelected != nil) {
+        [self.mapView deselectAnnotation:self.currentSpotSelected animated:NO];
+        [self.mapView selectAnnotation:self.currentSpotSelected animated:NO];
+    }*/
+}
+
 #pragma make - MapViewDelegate
 
 - (MKAnnotationView *) mapView:(MKMapView *) mapView viewForAnnotation:(id ) annotation {
@@ -92,9 +105,6 @@
     
     northEast.latitude = MAX(northEast.latitude, userLocation.coordinate.latitude);
     northEast.longitude = MAX(northEast.longitude, userLocation.coordinate.longitude);
-    
-    CLLocation *locSouthWest = [[CLLocation alloc] initWithLatitude:southWest.latitude longitude:southWest.longitude];
-    CLLocation *locNorthEast = [[CLLocation alloc] initWithLatitude:northEast.latitude longitude:northEast.longitude];
     
     MKCoordinateRegion region;
     region.center.latitude = (southWest.latitude + northEast.latitude) / 2.0;

@@ -12,7 +12,7 @@
 
 @interface CHParkingMapSelectLocation() {
     NSDate *_startLocationDate;
-    CHLocationAnnotation *_currentSelectedLocation;
+    
     
 }
 - (BOOL)isValidLocation:(CLLocation *)newLocation
@@ -20,13 +20,12 @@
 - (void)handleTap:(UIGestureRecognizer *)gestureRecognizer;
 
 @property (strong, nonatomic) NSDate *startLocationDate;
-@property (strong, nonatomic) CHLocationAnnotation *currentSelectedLocation;
 
 @end
 
 @implementation CHParkingMapSelectLocation
 
-@synthesize mapView=_mapView, locationManager=_locationManager, startLocationDate=_startLocationDate, currentSelectedLocation=_currentSelectedLocation, delegate=_delegate;
+@synthesize mapView=_mapView, locationManager=_locationManager, startLocationDate=_startLocationDate, currentSelectedLocation=_currentSelectedLocation, delegate=_delegate, segmentedControl=_segmentedControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -120,6 +119,7 @@
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     if (abs(howRecent) < 15.0)
     {
+        
         NSLog(@"latitude %+.6f, longitude %+.6f\n",
               newLocation.coordinate.latitude,
               newLocation.coordinate.longitude);
@@ -147,11 +147,36 @@
     [self.mapView addAnnotation:annot];
     self.currentSelectedLocation = annot;
     
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    
     [self stopStandardUpdates];
 }
 
 -(void)setLocation {
     [self.delegate setUserPickedLocation:self.currentSelectedLocation.coordinate];
+}
+
+-(IBAction)changeMapType:(id)sender{
+    
+    if ([sender class] == [UISegmentedControl class]) {
+        NSLog(@"Changed map type");
+        UISegmentedControl *control = (UISegmentedControl *)control;
+        
+        switch (self.segmentedControl.selectedSegmentIndex) {
+            case 0:
+                self.mapView.mapType = MKMapTypeStandard;
+                break;
+            case 1:
+                self.mapView.mapType = MKMapTypeSatellite;
+                break;
+            case 2:
+                self.mapView.mapType = MKMapTypeHybrid;
+                break;
+            default:
+                break;
+        }
+        
+    }
 }
 
 #pragma mark - View lifecycle
@@ -169,6 +194,8 @@
 {
     [super viewDidLoad];
     
+    self.segmentedControl.selectedSegmentIndex = 0;
+    
     self.mapView.delegate = self;
     self.locationManager.delegate = self;
     
@@ -176,7 +203,14 @@
     self.mapView.zoomEnabled = YES;
     self.mapView.scrollEnabled = YES;
     
+    self.navigationItem.rightBarButtonItem.enabled = (self.currentSelectedLocation != nil);
+    
     [self startStandardUpdates];
+    
+    if (self.currentSelectedLocation != nil) {
+        [self.mapView removeAnnotations:[self.mapView annotations]];
+        [self.mapView addAnnotation:self.currentSelectedLocation];
+    }
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] 
                                           initWithTarget:self action:@selector(handleTap:)];

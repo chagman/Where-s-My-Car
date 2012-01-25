@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8318951F14C0B949007DF5E4 /* CHCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318951E14C0B949007DF5E4 /* CHCountdownView.m */; };
+		8318952314C0D4BC007DF5E4 /* reminderIconOp2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8318952114C0D4BC007DF5E4 /* reminderIconOp2.png */; };
+		8318952414C0D4BC007DF5E4 /* reminderIconOp2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8318952214C0D4BC007DF5E4 /* reminderIconOp2@2x.png */; };
+		8318952714C0D615007DF5E4 /* CHDrawingCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318952614C0D615007DF5E4 /* CHDrawingCommon.m */; };
+		8318952A14C0E858007DF5E4 /* reminderIconOp2On.png in Resources */ = {isa = PBXBuildFile; fileRef = 8318952814C0E858007DF5E4 /* reminderIconOp2On.png */; };
+		8318952B14C0E858007DF5E4 /* reminderIconOp2On@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8318952914C0E858007DF5E4 /* reminderIconOp2On@2x.png */; };
 		83365DF014B8B52200895EC6 /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365DEE14B8B52200895EC6 /* alarm.png */; };
 		83365DF114B8B52200895EC6 /* alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365DEF14B8B52200895EC6 /* alarm@2x.png */; };
-		83365DF914B8CC4500895EC6 /* CHParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83365DF814B8CC4500895EC6 /* CHParkingSpot.m */; };
 		83365E0014B964DE00895EC6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365DFE14B964DE00895EC6 /* Icon.png */; };
 		83365E0114B964DE00895EC6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365DFF14B964DE00895EC6 /* Icon@2x.png */; };
 		83365E0A14B9652B00895EC6 /* compassMed.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E0214B9652B00895EC6 /* compassMed.png */; };
@@ -24,26 +29,22 @@
 		83365E3F14BBE9E800895EC6 /* meterPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E3D14BBE9E800895EC6 /* meterPin@2x.png */; };
 		83365E4214BBECCA00895EC6 /* meterHead.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4014BBECCA00895EC6 /* meterHead.png */; };
 		83365E4314BBECCA00895EC6 /* meterHead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4114BBECCA00895EC6 /* meterHead@2x.png */; };
-		83365E4814BBF85700895EC6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4614BBF85600895EC6 /* Default.png */; };
-		83365E4914BBF85700895EC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4714BBF85700895EC6 /* Default@2x.png */; };
+		83365E5014BE6E5500895EC6 /* CHCountdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83365E4F14BE6E5500895EC6 /* CHCountdownViewController.m */; };
 		833FDE7814AAAB9700FB7AB6 /* CHParkingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 833FDE7714AAAB9700FB7AB6 /* CHParkingView.m */; };
 		833FDE8414AAE26F00FB7AB6 /* CHCarPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 833FDE8314AAE26F00FB7AB6 /* CHCarPickerView.m */; };
 		8346C2B014ACDCFF0093982A /* CHParkingMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8346C2AF14ACDCFF0093982A /* CHParkingMapCell.m */; };
 		8346C2B714AD29350093982A /* CHEditTableViewSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8346C2B614AD29350093982A /* CHEditTableViewSwitchCell.m */; };
-		8346C2BE14AE0D740093982A /* 103-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 8346C2BD14AE0D730093982A /* 103-map.png */; };
-		8346C2C614AE20850093982A /* 74-location.png in Resources */ = {isa = PBXBuildFile; fileRef = 8346C2C314AE20820093982A /* 74-location.png */; };
-		8346C2C714AE20850093982A /* 78-stopwatch.png in Resources */ = {isa = PBXBuildFile; fileRef = 8346C2C414AE20830093982A /* 78-stopwatch.png */; };
-		8346C2C814AE20850093982A /* 81-dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 8346C2C514AE20840093982A /* 81-dashboard.png */; };
 		8346C2CC14AFC1230093982A /* CHMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8346C2CB14AFC1230093982A /* CHMeterView.m */; };
 		8346C2CF14AFC13B0093982A /* CHReminderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8346C2CE14AFC13A0093982A /* CHReminderView.m */; };
-		8346C2DA14B3F5430093982A /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 8346C2D914B3F5430093982A /* 11-clock.png */; };
 		8346C2DD14B3FA800093982A /* CHTimeTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8346C2DC14B3FA800093982A /* CHTimeTabBar.m */; };
 		835C6B5C14AA3AD50028FC91 /* CHParkingAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 835C6B5B14AA3AD50028FC91 /* CHParkingAnnotation.m */; };
-		8369777314ABA78A00848ACD /* CHCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369777214ABA78A00848ACD /* CHCar.m */; };
 		8369777C14ABB3A300848ACD /* CHEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369777B14ABB3A300848ACD /* CHEditTableViewCell.m */; };
 		8369778314AC2E4A00848ACD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8369778214AC2E4A00848ACD /* CoreLocation.framework */; };
+		837421DC14C260C600A7C79C /* CHUIMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 837421DB14C260C600A7C79C /* CHUIMeterView.m */; };
 		838A2AD014AB95AA0032213B /* CHAddCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 838A2ACF14AB95AA0032213B /* CHAddCarView.m */; };
 		838A2AD414ABA40D0032213B /* CarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 838A2AD314ABA40D0032213B /* CarManager.m */; };
+		838FCF3114CF941D009237C5 /* compass-loc.png in Resources */ = {isa = PBXBuildFile; fileRef = 838FCF2F14CF941D009237C5 /* compass-loc.png */; };
+		838FCF3214CF941D009237C5 /* compass-loc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838FCF3014CF941D009237C5 /* compass-loc@2x.png */; };
 		83BA5FDD14A8C82200D8F9F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BA5FDC14A8C82200D8F9F6 /* UIKit.framework */; };
 		83BA5FDF14A8C82200D8F9F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BA5FDE14A8C82200D8F9F6 /* Foundation.framework */; };
 		83BA5FE114A8C82200D8F9F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BA5FE014A8C82200D8F9F6 /* CoreGraphics.framework */; };
@@ -54,9 +55,18 @@
 		83BA5FF214A8C82200D8F9F6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BA5FF014A8C82200D8F9F6 /* MainStoryboard.storyboard */; };
 		83BA5FF514A8C82200D8F9F6 /* Parking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83BA5FF314A8C82200D8F9F6 /* Parking.xcdatamodeld */; };
 		83BA5FF814A8C82200D8F9F6 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA5FF714A8C82200D8F9F6 /* MasterViewController.m */; };
-		83BA5FFB14A8C82200D8F9F6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA5FFA14A8C82200D8F9F6 /* DetailViewController.m */; };
 		83BA604C14A8D14500D8F9F6 /* CHMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA604A14A8D14400D8F9F6 /* CHMapView.m */; };
 		83BA604F14A8D18400D8F9F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BA604E14A8D18400D8F9F6 /* MapKit.framework */; };
+		83C0AFDB14C52102004ADF0D /* CHCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C0AFDA14C52102004ADF0D /* CHCar.m */; };
+		83C0AFDF14C5217A004ADF0D /* CHParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C0AFDE14C5217A004ADF0D /* CHParkingSpot.m */; };
+		83C0AFF014C9C77E004ADF0D /* CHSharedReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C0AFEF14C9C77E004ADF0D /* CHSharedReminderViewController.m */; };
+		83C0AFFF14CA2988004ADF0D /* timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0AFFB14CA2981004ADF0D /* timer.png */; };
+		83C0B00014CA2988004ADF0D /* timer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0AFFC14CA2984004ADF0D /* timer@2x.png */; };
+		83C0B00514CA2ED2004ADF0D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0B00314CA2ED2004ADF0D /* Default.png */; };
+		83C0B00614CA2ED2004ADF0D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0B00414CA2ED2004ADF0D /* Default@2x.png */; };
+		83C0B00914CA302A004ADF0D /* mapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0B00714CA302A004ADF0D /* mapIcon.png */; };
+		83C0B00A14CA302A004ADF0D /* mapIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0B00814CA302A004ADF0D /* mapIcon@2x.png */; };
+		83C0B00D14CB5E53004ADF0D /* FlipClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C0B00C14CB5E50004ADF0D /* FlipClockViewController.m */; };
 		83C0E3C514B5EA3300AF9740 /* mapCarPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0E3C214B5EA3300AF9740 /* mapCarPin.png */; };
 		83C0E3C614B5EA3300AF9740 /* meter.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0E3C314B5EA3300AF9740 /* meter.png */; };
 		83C0E3C714B5EA3300AF9740 /* meter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0E3C414B5EA3300AF9740 /* meter@2x.png */; };
@@ -78,10 +88,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8318951D14C0B949007DF5E4 /* CHCountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountdownView.h; sourceTree = "<group>"; };
+		8318951E14C0B949007DF5E4 /* CHCountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountdownView.m; sourceTree = "<group>"; };
+		8318952114C0D4BC007DF5E4 /* reminderIconOp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reminderIconOp2.png; sourceTree = "<group>"; };
+		8318952214C0D4BC007DF5E4 /* reminderIconOp2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reminderIconOp2@2x.png"; sourceTree = "<group>"; };
+		8318952514C0D615007DF5E4 /* CHDrawingCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDrawingCommon.h; sourceTree = "<group>"; };
+		8318952614C0D615007DF5E4 /* CHDrawingCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDrawingCommon.m; sourceTree = "<group>"; };
+		8318952814C0E858007DF5E4 /* reminderIconOp2On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reminderIconOp2On.png; sourceTree = "<group>"; };
+		8318952914C0E858007DF5E4 /* reminderIconOp2On@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reminderIconOp2On@2x.png"; sourceTree = "<group>"; };
 		83365DEE14B8B52200895EC6 /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		83365DEF14B8B52200895EC6 /* alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm@2x.png"; sourceTree = "<group>"; };
-		83365DF714B8CC4500895EC6 /* CHParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHParkingSpot.h; sourceTree = "<group>"; };
-		83365DF814B8CC4500895EC6 /* CHParkingSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHParkingSpot.m; sourceTree = "<group>"; };
 		83365DFE14B964DE00895EC6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		83365DFF14B964DE00895EC6 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		83365E0214B9652B00895EC6 /* compassMed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compassMed.png; sourceTree = "<group>"; };
@@ -96,8 +112,8 @@
 		83365E3D14BBE9E800895EC6 /* meterPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meterPin@2x.png"; sourceTree = "<group>"; };
 		83365E4014BBECCA00895EC6 /* meterHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meterHead.png; sourceTree = "<group>"; };
 		83365E4114BBECCA00895EC6 /* meterHead@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meterHead@2x.png"; sourceTree = "<group>"; };
-		83365E4614BBF85600895EC6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		83365E4714BBF85700895EC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		83365E4E14BE6E5500895EC6 /* CHCountdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountdownViewController.h; sourceTree = "<group>"; };
+		83365E4F14BE6E5500895EC6 /* CHCountdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountdownViewController.m; sourceTree = "<group>"; };
 		833FDE7614AAAB9700FB7AB6 /* CHParkingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHParkingView.h; sourceTree = "<group>"; };
 		833FDE7714AAAB9700FB7AB6 /* CHParkingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHParkingView.m; sourceTree = "<group>"; };
 		833FDE8214AAE26F00FB7AB6 /* CHCarPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCarPickerView.h; sourceTree = "<group>"; };
@@ -106,28 +122,25 @@
 		8346C2AF14ACDCFF0093982A /* CHParkingMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHParkingMapCell.m; sourceTree = "<group>"; };
 		8346C2B514AD29350093982A /* CHEditTableViewSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHEditTableViewSwitchCell.h; sourceTree = "<group>"; };
 		8346C2B614AD29350093982A /* CHEditTableViewSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHEditTableViewSwitchCell.m; sourceTree = "<group>"; };
-		8346C2BD14AE0D730093982A /* 103-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "103-map.png"; path = "/Users/hagmanc/Downloads/glyphish-icons/icons/103-map.png"; sourceTree = "<absolute>"; };
-		8346C2C314AE20820093982A /* 74-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "74-location.png"; sourceTree = "<group>"; };
-		8346C2C414AE20830093982A /* 78-stopwatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "78-stopwatch.png"; sourceTree = "<group>"; };
-		8346C2C514AE20840093982A /* 81-dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "81-dashboard.png"; sourceTree = "<group>"; };
 		8346C2CA14AFC1220093982A /* CHMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMeterView.h; sourceTree = "<group>"; };
 		8346C2CB14AFC1230093982A /* CHMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMeterView.m; sourceTree = "<group>"; };
 		8346C2CD14AFC13A0093982A /* CHReminderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHReminderView.h; sourceTree = "<group>"; };
 		8346C2CE14AFC13A0093982A /* CHReminderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHReminderView.m; sourceTree = "<group>"; };
-		8346C2D914B3F5430093982A /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
 		8346C2DB14B3FA800093982A /* CHTimeTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTimeTabBar.h; sourceTree = "<group>"; };
 		8346C2DC14B3FA800093982A /* CHTimeTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTimeTabBar.m; sourceTree = "<group>"; };
 		835C6B5A14AA3AD50028FC91 /* CHParkingAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHParkingAnnotation.h; path = ../CHParkingAnnotation.h; sourceTree = "<group>"; };
 		835C6B5B14AA3AD50028FC91 /* CHParkingAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHParkingAnnotation.m; path = ../CHParkingAnnotation.m; sourceTree = "<group>"; };
-		8369777114ABA78A00848ACD /* CHCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCar.h; sourceTree = "<group>"; };
-		8369777214ABA78A00848ACD /* CHCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCar.m; sourceTree = "<group>"; };
 		8369777A14ABB3A300848ACD /* CHEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHEditTableViewCell.h; sourceTree = "<group>"; };
 		8369777B14ABB3A300848ACD /* CHEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHEditTableViewCell.m; sourceTree = "<group>"; };
 		8369778214AC2E4A00848ACD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		837421DA14C260C600A7C79C /* CHUIMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHUIMeterView.h; sourceTree = "<group>"; };
+		837421DB14C260C600A7C79C /* CHUIMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHUIMeterView.m; sourceTree = "<group>"; };
 		838A2ACE14AB95AA0032213B /* CHAddCarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAddCarView.h; sourceTree = "<group>"; };
 		838A2ACF14AB95AA0032213B /* CHAddCarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAddCarView.m; sourceTree = "<group>"; };
 		838A2AD214ABA40D0032213B /* CarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarManager.h; sourceTree = "<group>"; };
 		838A2AD314ABA40D0032213B /* CarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarManager.m; sourceTree = "<group>"; };
+		838FCF2F14CF941D009237C5 /* compass-loc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass-loc.png"; sourceTree = "<group>"; };
+		838FCF3014CF941D009237C5 /* compass-loc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass-loc@2x.png"; sourceTree = "<group>"; };
 		83BA5FD814A8C82200D8F9F6 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BA5FDC14A8C82200D8F9F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83BA5FDE14A8C82200D8F9F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,11 +156,23 @@
 		83BA5FF414A8C82200D8F9F6 /* Parking.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Parking.xcdatamodel; sourceTree = "<group>"; };
 		83BA5FF614A8C82200D8F9F6 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		83BA5FF714A8C82200D8F9F6 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		83BA5FF914A8C82200D8F9F6 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		83BA5FFA14A8C82200D8F9F6 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		83BA604914A8D14400D8F9F6 /* CHMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMapView.h; sourceTree = "<group>"; };
 		83BA604A14A8D14400D8F9F6 /* CHMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMapView.m; sourceTree = "<group>"; };
 		83BA604E14A8D18400D8F9F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		83C0AFD914C52102004ADF0D /* CHCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCar.h; sourceTree = "<group>"; };
+		83C0AFDA14C52102004ADF0D /* CHCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCar.m; sourceTree = "<group>"; };
+		83C0AFDD14C5217A004ADF0D /* CHParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHParkingSpot.h; sourceTree = "<group>"; };
+		83C0AFDE14C5217A004ADF0D /* CHParkingSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHParkingSpot.m; sourceTree = "<group>"; };
+		83C0AFEE14C9C77D004ADF0D /* CHSharedReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSharedReminderViewController.h; sourceTree = "<group>"; };
+		83C0AFEF14C9C77E004ADF0D /* CHSharedReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSharedReminderViewController.m; sourceTree = "<group>"; };
+		83C0AFFB14CA2981004ADF0D /* timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timer.png; sourceTree = "<group>"; };
+		83C0AFFC14CA2984004ADF0D /* timer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer@2x.png"; sourceTree = "<group>"; };
+		83C0B00314CA2ED2004ADF0D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		83C0B00414CA2ED2004ADF0D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		83C0B00714CA302A004ADF0D /* mapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapIcon.png; sourceTree = "<group>"; };
+		83C0B00814CA302A004ADF0D /* mapIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapIcon@2x.png"; sourceTree = "<group>"; };
+		83C0B00B14CB5E50004ADF0D /* FlipClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipClockViewController.h; sourceTree = "<group>"; };
+		83C0B00C14CB5E50004ADF0D /* FlipClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipClockViewController.m; sourceTree = "<group>"; };
 		83C0E3C214B5EA3300AF9740 /* mapCarPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapCarPin.png; sourceTree = "<group>"; };
 		83C0E3C314B5EA3300AF9740 /* meter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meter.png; sourceTree = "<group>"; };
 		83C0E3C414B5EA3300AF9740 /* meter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meter@2x.png"; sourceTree = "<group>"; };
@@ -189,6 +214,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83365E5214BE6E5A00895EC6 /* Countdown */ = {
+			isa = PBXGroup;
+			children = (
+				83365E4E14BE6E5500895EC6 /* CHCountdownViewController.h */,
+				83365E4F14BE6E5500895EC6 /* CHCountdownViewController.m */,
+				8318951D14C0B949007DF5E4 /* CHCountdownView.h */,
+				8318951E14C0B949007DF5E4 /* CHCountdownView.m */,
+			);
+			name = Countdown;
+			sourceTree = "<group>";
+		};
 		8346C2AD14ACDCD40093982A /* Parking Group */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,8 +241,18 @@
 		8346C2C914AE20910093982A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				83365E4614BBF85600895EC6 /* Default.png */,
-				83365E4714BBF85700895EC6 /* Default@2x.png */,
+				838FCF2F14CF941D009237C5 /* compass-loc.png */,
+				838FCF3014CF941D009237C5 /* compass-loc@2x.png */,
+				83C0B00714CA302A004ADF0D /* mapIcon.png */,
+				83C0B00814CA302A004ADF0D /* mapIcon@2x.png */,
+				83C0B00314CA2ED2004ADF0D /* Default.png */,
+				83C0B00414CA2ED2004ADF0D /* Default@2x.png */,
+				83C0AFFB14CA2981004ADF0D /* timer.png */,
+				83C0AFFC14CA2984004ADF0D /* timer@2x.png */,
+				8318952814C0E858007DF5E4 /* reminderIconOp2On.png */,
+				8318952914C0E858007DF5E4 /* reminderIconOp2On@2x.png */,
+				8318952114C0D4BC007DF5E4 /* reminderIconOp2.png */,
+				8318952214C0D4BC007DF5E4 /* reminderIconOp2@2x.png */,
 				83365E4014BBECCA00895EC6 /* meterHead.png */,
 				83365E4114BBECCA00895EC6 /* meterHead@2x.png */,
 				83365E3C14BBE9E800895EC6 /* meterPin.png */,
@@ -237,11 +283,6 @@
 				83C0E3C214B5EA3300AF9740 /* mapCarPin.png */,
 				83C0E3C314B5EA3300AF9740 /* meter.png */,
 				83C0E3C414B5EA3300AF9740 /* meter@2x.png */,
-				8346C2C314AE20820093982A /* 74-location.png */,
-				8346C2C414AE20830093982A /* 78-stopwatch.png */,
-				8346C2D914B3F5430093982A /* 11-clock.png */,
-				8346C2C514AE20840093982A /* 81-dashboard.png */,
-				8346C2BD14AE0D730093982A /* 103-map.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -249,10 +290,14 @@
 		8346C2D014AFC14D0093982A /* Time Selection */ = {
 			isa = PBXGroup;
 			children = (
+				83C0AFEE14C9C77D004ADF0D /* CHSharedReminderViewController.h */,
+				83C0AFEF14C9C77E004ADF0D /* CHSharedReminderViewController.m */,
 				8346C2CD14AFC13A0093982A /* CHReminderView.h */,
 				8346C2CE14AFC13A0093982A /* CHReminderView.m */,
 				8346C2CA14AFC1220093982A /* CHMeterView.h */,
 				8346C2CB14AFC1230093982A /* CHMeterView.m */,
+				837421DA14C260C600A7C79C /* CHUIMeterView.h */,
+				837421DB14C260C600A7C79C /* CHUIMeterView.m */,
 				8346C2DB14B3FA800093982A /* CHTimeTabBar.h */,
 				8346C2DC14B3FA800093982A /* CHTimeTabBar.m */,
 			);
@@ -312,6 +357,8 @@
 				83BA605114A8D1A400D8F9F6 /* Views */,
 				83BA605014A8D19200D8F9F6 /* Model */,
 				83BA5FE514A8C82200D8F9F6 /* Supporting Files */,
+				8318952514C0D615007DF5E4 /* CHDrawingCommon.h */,
+				8318952614C0D615007DF5E4 /* CHDrawingCommon.m */,
 			);
 			path = Parking;
 			sourceTree = "<group>";
@@ -334,10 +381,10 @@
 				835C6B5A14AA3AD50028FC91 /* CHParkingAnnotation.h */,
 				835C6B5B14AA3AD50028FC91 /* CHParkingAnnotation.m */,
 				83BA5FF314A8C82200D8F9F6 /* Parking.xcdatamodeld */,
-				83365DF714B8CC4500895EC6 /* CHParkingSpot.h */,
-				83365DF814B8CC4500895EC6 /* CHParkingSpot.m */,
-				8369777114ABA78A00848ACD /* CHCar.h */,
-				8369777214ABA78A00848ACD /* CHCar.m */,
+				83C0AFDD14C5217A004ADF0D /* CHParkingSpot.h */,
+				83C0AFDE14C5217A004ADF0D /* CHParkingSpot.m */,
+				83C0AFD914C52102004ADF0D /* CHCar.h */,
+				83C0AFDA14C52102004ADF0D /* CHCar.m */,
 				838A2AD214ABA40D0032213B /* CarManager.h */,
 				838A2AD314ABA40D0032213B /* CarManager.m */,
 				83C0E3F014B753F400AF9740 /* CHLocationAnnotation.h */,
@@ -349,6 +396,8 @@
 		83BA605114A8D1A400D8F9F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				83C0B00B14CB5E50004ADF0D /* FlipClockViewController.h */,
+				83C0B00C14CB5E50004ADF0D /* FlipClockViewController.m */,
 				833FDE8214AAE26F00FB7AB6 /* CHCarPickerView.h */,
 				833FDE8314AAE26F00FB7AB6 /* CHCarPickerView.m */,
 				8346C2D014AFC14D0093982A /* Time Selection */,
@@ -357,11 +406,10 @@
 				83BA5FF714A8C82200D8F9F6 /* MasterViewController.m */,
 				83BA604914A8D14400D8F9F6 /* CHMapView.h */,
 				83BA604A14A8D14400D8F9F6 /* CHMapView.m */,
-				83BA5FF914A8C82200D8F9F6 /* DetailViewController.h */,
-				83BA5FFA14A8C82200D8F9F6 /* DetailViewController.m */,
 				8369777914ABB32600848ACD /* Add Car Views */,
 				83C0E3FE14B8994F00AF9740 /* CHGlowLabel.h */,
 				83C0E3FF14B8994F00AF9740 /* CHGlowLabel.m */,
+				83365E5214BE6E5A00895EC6 /* Countdown */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -419,11 +467,6 @@
 			files = (
 				83BA5FE914A8C82200D8F9F6 /* InfoPlist.strings in Resources */,
 				83BA5FF214A8C82200D8F9F6 /* MainStoryboard.storyboard in Resources */,
-				8346C2BE14AE0D740093982A /* 103-map.png in Resources */,
-				8346C2C614AE20850093982A /* 74-location.png in Resources */,
-				8346C2C714AE20850093982A /* 78-stopwatch.png in Resources */,
-				8346C2C814AE20850093982A /* 81-dashboard.png in Resources */,
-				8346C2DA14B3F5430093982A /* 11-clock.png in Resources */,
 				83C0E3C514B5EA3300AF9740 /* mapCarPin.png in Resources */,
 				83C0E3C614B5EA3300AF9740 /* meter.png in Resources */,
 				83C0E3C714B5EA3300AF9740 /* meter@2x.png in Resources */,
@@ -454,8 +497,18 @@
 				83365E3F14BBE9E800895EC6 /* meterPin@2x.png in Resources */,
 				83365E4214BBECCA00895EC6 /* meterHead.png in Resources */,
 				83365E4314BBECCA00895EC6 /* meterHead@2x.png in Resources */,
-				83365E4814BBF85700895EC6 /* Default.png in Resources */,
-				83365E4914BBF85700895EC6 /* Default@2x.png in Resources */,
+				8318952314C0D4BC007DF5E4 /* reminderIconOp2.png in Resources */,
+				8318952414C0D4BC007DF5E4 /* reminderIconOp2@2x.png in Resources */,
+				8318952A14C0E858007DF5E4 /* reminderIconOp2On.png in Resources */,
+				8318952B14C0E858007DF5E4 /* reminderIconOp2On@2x.png in Resources */,
+				83C0AFFF14CA2988004ADF0D /* timer.png in Resources */,
+				83C0B00014CA2988004ADF0D /* timer@2x.png in Resources */,
+				83C0B00514CA2ED2004ADF0D /* Default.png in Resources */,
+				83C0B00614CA2ED2004ADF0D /* Default@2x.png in Resources */,
+				83C0B00914CA302A004ADF0D /* mapIcon.png in Resources */,
+				83C0B00A14CA302A004ADF0D /* mapIcon@2x.png in Resources */,
+				838FCF3114CF941D009237C5 /* compass-loc.png in Resources */,
+				838FCF3214CF941D009237C5 /* compass-loc@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,14 +523,12 @@
 				83BA5FEF14A8C82200D8F9F6 /* AppDelegate.m in Sources */,
 				83BA5FF514A8C82200D8F9F6 /* Parking.xcdatamodeld in Sources */,
 				83BA5FF814A8C82200D8F9F6 /* MasterViewController.m in Sources */,
-				83BA5FFB14A8C82200D8F9F6 /* DetailViewController.m in Sources */,
 				83BA604C14A8D14500D8F9F6 /* CHMapView.m in Sources */,
 				835C6B5C14AA3AD50028FC91 /* CHParkingAnnotation.m in Sources */,
 				833FDE7814AAAB9700FB7AB6 /* CHParkingView.m in Sources */,
 				833FDE8414AAE26F00FB7AB6 /* CHCarPickerView.m in Sources */,
 				838A2AD014AB95AA0032213B /* CHAddCarView.m in Sources */,
 				838A2AD414ABA40D0032213B /* CarManager.m in Sources */,
-				8369777314ABA78A00848ACD /* CHCar.m in Sources */,
 				8369777C14ABB3A300848ACD /* CHEditTableViewCell.m in Sources */,
 				8346C2B014ACDCFF0093982A /* CHParkingMapCell.m in Sources */,
 				8346C2B714AD29350093982A /* CHEditTableViewSwitchCell.m in Sources */,
@@ -487,7 +538,14 @@
 				83C0E3EF14B7519500AF9740 /* CHParkingMapSelectLocation.m in Sources */,
 				83C0E3F214B753F400AF9740 /* CHLocationAnnotation.m in Sources */,
 				83C0E40014B8995000AF9740 /* CHGlowLabel.m in Sources */,
-				83365DF914B8CC4500895EC6 /* CHParkingSpot.m in Sources */,
+				83365E5014BE6E5500895EC6 /* CHCountdownViewController.m in Sources */,
+				8318951F14C0B949007DF5E4 /* CHCountdownView.m in Sources */,
+				8318952714C0D615007DF5E4 /* CHDrawingCommon.m in Sources */,
+				837421DC14C260C600A7C79C /* CHUIMeterView.m in Sources */,
+				83C0AFDB14C52102004ADF0D /* CHCar.m in Sources */,
+				83C0AFDF14C5217A004ADF0D /* CHParkingSpot.m in Sources */,
+				83C0AFF014C9C77E004ADF0D /* CHSharedReminderViewController.m in Sources */,
+				83C0B00D14CB5E53004ADF0D /* FlipClockViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

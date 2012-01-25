@@ -22,6 +22,7 @@
     CLLocationManager *_locationManager;
     MKMapView *_mapView;
     CLLocation *_location;
+    BOOL _userDidPickLocation;
     
     __weak id<CHParkingMapViewCellDelegate> _cellDelegate;
 }
@@ -30,6 +31,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocation *location;
 @property (weak, nonatomic) id <CHParkingMapViewCellDelegate> cellDelegate;
+@property (nonatomic) BOOL userDidPickLocation;
 
 - (void)configureMapViewCell;
 - (void)startStandardUpdates;

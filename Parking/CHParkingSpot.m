@@ -2,7 +2,7 @@
 //  CHParkingSpot.m
 //  Parking
 //
-//  Created by Charles Hagman on 1/7/12.
+//  Created by Charles Hagman on 1/16/12.
 //  Copyright (c) 2012 Deloitte. All rights reserved.
 //
 
@@ -17,11 +17,12 @@
 @dynamic endDate;
 @dynamic latitude;
 @dynamic longitude;
+@dynamic notes;
 @dynamic startDate;
 @dynamic state;
 @dynamic timeLimit;
 @dynamic zip;
-@dynamic notes;
+@dynamic isReminderSet;
 @dynamic car;
 
 -(CLLocationCoordinate2D)location {

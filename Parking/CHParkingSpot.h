@@ -2,7 +2,7 @@
 //  CHParkingSpot.h
 //  Parking
 //
-//  Created by Charles Hagman on 1/7/12.
+//  Created by Charles Hagman on 1/16/12.
 //  Copyright (c) 2012 Deloitte. All rights reserved.
 //
 
@@ -19,11 +19,12 @@
 @property (nonatomic, retain) NSDate * endDate;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSDate * startDate;
 @property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSNumber * timeLimit;
 @property (nonatomic, retain) NSString * zip;
-@property (nonatomic, retain) NSString * notes;
+@property (nonatomic, retain) NSNumber * isReminderSet;
 @property (nonatomic, retain) CHCar *car;
 
 -(CLLocationCoordinate2D)location;

@@ -2,8 +2,8 @@
 //  CHCar.h
 //  Parking
 //
-//  Created by Charles Hagman on 12/28/11.
-//  Copyright (c) 2011 Deloitte. All rights reserved.
+//  Created by Charles Hagman on 1/16/12.
+//  Copyright (c) 2012 Deloitte. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -18,7 +18,11 @@
 @property (nonatomic, retain) NSString * make;
 @property (nonatomic, retain) NSString * model;
 @property (nonatomic, retain) NSString * nickname;
+@property (nonatomic, retain) NSString * year;
 @property (nonatomic, retain) NSSet *spots;
+
+-(NSString *)carLabel;
+
 @end
 
 @interface CHCar (CoreDataGeneratedAccessors)
@@ -27,7 +31,5 @@
 - (void)removeSpotsObject:(CHParkingSpot *)value;
 - (void)addSpots:(NSSet *)values;
 - (void)removeSpots:(NSSet *)values;
-
--(NSString *)carLabel;
 
 @end

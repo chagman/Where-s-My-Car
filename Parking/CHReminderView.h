@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CHGlowLabel.h"
+#import "CHSharedReminderViewController.h"
 
-@interface CHReminderView : UIViewController {
+@interface CHReminderView : CHSharedReminderViewController {
 
     UIDatePicker *_picker;
     CHGlowLabel *_clockLabel;
@@ -23,6 +24,8 @@
 @property (strong, nonatomic) IBOutlet CHGlowLabel *clockLabel;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSDate *initialDate;
+
+
 
 -(IBAction)valueDidChange:(id)sender;
 -(NSDate *)currentTime;
