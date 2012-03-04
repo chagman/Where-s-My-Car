@@ -228,6 +228,23 @@ static CarManager *sharedCarManagerInstance = nil;
 
 }
 
+-(NSInteger) numberOfCars {
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"CHCar" 
+                                                         inManagedObjectContext:self.managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSError *error = nil;
+    NSArray *cars = [self.managedObjectContext executeFetchRequest:request error:&error];
+    NSInteger numberOfcars = 0;
+    if (cars != nil) {
+        numberOfcars =  [cars count];
+    }
+    
+    return numberOfcars;
+}
+
 - (void)scheduleNotificationForSpot:(CHParkingSpot *)spot interval:(int)minutesBefore {
     /*NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
     NSDateComponents *dateComps = [[NSDateComponents alloc] init];

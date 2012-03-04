@@ -25,8 +25,6 @@
 		83365E1114B9652B00895EC6 /* reminderIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E0914B9652B00895EC6 /* reminderIcon@2x.png */; };
 		83365E3614BBE90800895EC6 /* meterPinOp2.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E3414BBE90400895EC6 /* meterPinOp2.png */; };
 		83365E3714BBE90800895EC6 /* meterPinOp2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E3514BBE90600895EC6 /* meterPinOp2@2x.png */; };
-		83365E3E14BBE9E800895EC6 /* meterPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E3C14BBE9E800895EC6 /* meterPin.png */; };
-		83365E3F14BBE9E800895EC6 /* meterPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E3D14BBE9E800895EC6 /* meterPin@2x.png */; };
 		83365E4214BBECCA00895EC6 /* meterHead.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4014BBECCA00895EC6 /* meterHead.png */; };
 		83365E4314BBECCA00895EC6 /* meterHead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83365E4114BBECCA00895EC6 /* meterHead@2x.png */; };
 		83365E5014BE6E5500895EC6 /* CHCountdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83365E4F14BE6E5500895EC6 /* CHCountdownViewController.m */; };
@@ -41,10 +39,15 @@
 		8369777C14ABB3A300848ACD /* CHEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369777B14ABB3A300848ACD /* CHEditTableViewCell.m */; };
 		8369778314AC2E4A00848ACD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8369778214AC2E4A00848ACD /* CoreLocation.framework */; };
 		837421DC14C260C600A7C79C /* CHUIMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 837421DB14C260C600A7C79C /* CHUIMeterView.m */; };
+		8374DEF114E207AB0040E32C /* meterPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8374DEEF14E207AB0040E32C /* meterPin.png */; };
+		8374DEF214E207AB0040E32C /* meterPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8374DEF014E207AB0040E32C /* meterPin@2x.png */; };
 		838A2AD014AB95AA0032213B /* CHAddCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 838A2ACF14AB95AA0032213B /* CHAddCarView.m */; };
 		838A2AD414ABA40D0032213B /* CarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 838A2AD314ABA40D0032213B /* CarManager.m */; };
 		838FCF3114CF941D009237C5 /* compass-loc.png in Resources */ = {isa = PBXBuildFile; fileRef = 838FCF2F14CF941D009237C5 /* compass-loc.png */; };
 		838FCF3214CF941D009237C5 /* compass-loc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838FCF3014CF941D009237C5 /* compass-loc@2x.png */; };
+		83A63AFF14D44B2C007EBFE6 /* CHOptionsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A63AFE14D44B2C007EBFE6 /* CHOptionsMenuViewController.m */; };
+		83A9998F14D45206002346F2 /* moreOptions.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A9998D14D45206002346F2 /* moreOptions.png */; };
+		83A9999014D45206002346F2 /* moreOptions@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A9998E14D45206002346F2 /* moreOptions@2x.png */; };
 		83BA5FDD14A8C82200D8F9F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BA5FDC14A8C82200D8F9F6 /* UIKit.framework */; };
 		83BA5FDF14A8C82200D8F9F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BA5FDE14A8C82200D8F9F6 /* Foundation.framework */; };
 		83BA5FE114A8C82200D8F9F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BA5FE014A8C82200D8F9F6 /* CoreGraphics.framework */; };
@@ -85,6 +88,8 @@
 		83C0E3F214B753F400AF9740 /* CHLocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C0E3F114B753F400AF9740 /* CHLocationAnnotation.m */; };
 		83C0E3F414B75F8500AF9740 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C0E3F314B75F8500AF9740 /* QuartzCore.framework */; };
 		83C0E40014B8995000AF9740 /* CHGlowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C0E3FF14B8994F00AF9740 /* CHGlowLabel.m */; };
+		83EF825314DC3F8000A2002F /* centerMapPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EF825114DC3F7F00A2002F /* centerMapPin.png */; };
+		83EF825414DC3F8000A2002F /* centerMapPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EF825214DC3F7F00A2002F /* centerMapPin@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,8 +113,6 @@
 		83365E0914B9652B00895EC6 /* reminderIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reminderIcon@2x.png"; sourceTree = "<group>"; };
 		83365E3414BBE90400895EC6 /* meterPinOp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meterPinOp2.png; sourceTree = "<group>"; };
 		83365E3514BBE90600895EC6 /* meterPinOp2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meterPinOp2@2x.png"; sourceTree = "<group>"; };
-		83365E3C14BBE9E800895EC6 /* meterPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meterPin.png; sourceTree = "<group>"; };
-		83365E3D14BBE9E800895EC6 /* meterPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meterPin@2x.png"; sourceTree = "<group>"; };
 		83365E4014BBECCA00895EC6 /* meterHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meterHead.png; sourceTree = "<group>"; };
 		83365E4114BBECCA00895EC6 /* meterHead@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meterHead@2x.png"; sourceTree = "<group>"; };
 		83365E4E14BE6E5500895EC6 /* CHCountdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountdownViewController.h; sourceTree = "<group>"; };
@@ -135,12 +138,18 @@
 		8369778214AC2E4A00848ACD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		837421DA14C260C600A7C79C /* CHUIMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHUIMeterView.h; sourceTree = "<group>"; };
 		837421DB14C260C600A7C79C /* CHUIMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHUIMeterView.m; sourceTree = "<group>"; };
+		8374DEEF14E207AB0040E32C /* meterPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meterPin.png; sourceTree = "<group>"; };
+		8374DEF014E207AB0040E32C /* meterPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meterPin@2x.png"; sourceTree = "<group>"; };
 		838A2ACE14AB95AA0032213B /* CHAddCarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAddCarView.h; sourceTree = "<group>"; };
 		838A2ACF14AB95AA0032213B /* CHAddCarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAddCarView.m; sourceTree = "<group>"; };
 		838A2AD214ABA40D0032213B /* CarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarManager.h; sourceTree = "<group>"; };
 		838A2AD314ABA40D0032213B /* CarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarManager.m; sourceTree = "<group>"; };
 		838FCF2F14CF941D009237C5 /* compass-loc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass-loc.png"; sourceTree = "<group>"; };
 		838FCF3014CF941D009237C5 /* compass-loc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass-loc@2x.png"; sourceTree = "<group>"; };
+		83A63AFD14D44B2C007EBFE6 /* CHOptionsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHOptionsMenuViewController.h; sourceTree = "<group>"; };
+		83A63AFE14D44B2C007EBFE6 /* CHOptionsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHOptionsMenuViewController.m; sourceTree = "<group>"; };
+		83A9998D14D45206002346F2 /* moreOptions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreOptions.png; sourceTree = "<group>"; };
+		83A9998E14D45206002346F2 /* moreOptions@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moreOptions@2x.png"; sourceTree = "<group>"; };
 		83BA5FD814A8C82200D8F9F6 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BA5FDC14A8C82200D8F9F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83BA5FDE14A8C82200D8F9F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -194,6 +203,8 @@
 		83C0E3F314B75F8500AF9740 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		83C0E3FE14B8994F00AF9740 /* CHGlowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGlowLabel.h; sourceTree = "<group>"; };
 		83C0E3FF14B8994F00AF9740 /* CHGlowLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGlowLabel.m; sourceTree = "<group>"; };
+		83EF825114DC3F7F00A2002F /* centerMapPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = centerMapPin.png; sourceTree = "<group>"; };
+		83EF825214DC3F7F00A2002F /* centerMapPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerMapPin@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +239,8 @@
 		8346C2AD14ACDCD40093982A /* Parking Group */ = {
 			isa = PBXGroup;
 			children = (
+				833FDE8214AAE26F00FB7AB6 /* CHCarPickerView.h */,
+				833FDE8314AAE26F00FB7AB6 /* CHCarPickerView.m */,
 				833FDE7614AAAB9700FB7AB6 /* CHParkingView.h */,
 				833FDE7714AAAB9700FB7AB6 /* CHParkingView.m */,
 				8346C2AE14ACDCFF0093982A /* CHParkingMapCell.h */,
@@ -241,6 +254,12 @@
 		8346C2C914AE20910093982A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8374DEEF14E207AB0040E32C /* meterPin.png */,
+				8374DEF014E207AB0040E32C /* meterPin@2x.png */,
+				83EF825114DC3F7F00A2002F /* centerMapPin.png */,
+				83EF825214DC3F7F00A2002F /* centerMapPin@2x.png */,
+				83A9998D14D45206002346F2 /* moreOptions.png */,
+				83A9998E14D45206002346F2 /* moreOptions@2x.png */,
 				838FCF2F14CF941D009237C5 /* compass-loc.png */,
 				838FCF3014CF941D009237C5 /* compass-loc@2x.png */,
 				83C0B00714CA302A004ADF0D /* mapIcon.png */,
@@ -255,8 +274,6 @@
 				8318952214C0D4BC007DF5E4 /* reminderIconOp2@2x.png */,
 				83365E4014BBECCA00895EC6 /* meterHead.png */,
 				83365E4114BBECCA00895EC6 /* meterHead@2x.png */,
-				83365E3C14BBE9E800895EC6 /* meterPin.png */,
-				83365E3D14BBE9E800895EC6 /* meterPin@2x.png */,
 				83365E3414BBE90400895EC6 /* meterPinOp2.png */,
 				83365E3514BBE90600895EC6 /* meterPinOp2@2x.png */,
 				83365E0214B9652B00895EC6 /* compassMed.png */,
@@ -315,6 +332,17 @@
 				8346C2B614AD29350093982A /* CHEditTableViewSwitchCell.m */,
 			);
 			name = "Add Car Views";
+			sourceTree = "<group>";
+		};
+		83A63AFB14D44AA5007EBFE6 /* Reverse of MapView */ = {
+			isa = PBXGroup;
+			children = (
+				83BA5FF614A8C82200D8F9F6 /* MasterViewController.h */,
+				83BA5FF714A8C82200D8F9F6 /* MasterViewController.m */,
+				83A63AFD14D44B2C007EBFE6 /* CHOptionsMenuViewController.h */,
+				83A63AFE14D44B2C007EBFE6 /* CHOptionsMenuViewController.m */,
+			);
+			name = "Reverse of MapView";
 			sourceTree = "<group>";
 		};
 		83BA5FCD14A8C82100D8F9F6 = {
@@ -396,14 +424,11 @@
 		83BA605114A8D1A400D8F9F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				83A63AFB14D44AA5007EBFE6 /* Reverse of MapView */,
 				83C0B00B14CB5E50004ADF0D /* FlipClockViewController.h */,
 				83C0B00C14CB5E50004ADF0D /* FlipClockViewController.m */,
-				833FDE8214AAE26F00FB7AB6 /* CHCarPickerView.h */,
-				833FDE8314AAE26F00FB7AB6 /* CHCarPickerView.m */,
 				8346C2D014AFC14D0093982A /* Time Selection */,
 				8346C2AD14ACDCD40093982A /* Parking Group */,
-				83BA5FF614A8C82200D8F9F6 /* MasterViewController.h */,
-				83BA5FF714A8C82200D8F9F6 /* MasterViewController.m */,
 				83BA604914A8D14400D8F9F6 /* CHMapView.h */,
 				83BA604A14A8D14400D8F9F6 /* CHMapView.m */,
 				8369777914ABB32600848ACD /* Add Car Views */,
@@ -493,8 +518,6 @@
 				83365E1114B9652B00895EC6 /* reminderIcon@2x.png in Resources */,
 				83365E3614BBE90800895EC6 /* meterPinOp2.png in Resources */,
 				83365E3714BBE90800895EC6 /* meterPinOp2@2x.png in Resources */,
-				83365E3E14BBE9E800895EC6 /* meterPin.png in Resources */,
-				83365E3F14BBE9E800895EC6 /* meterPin@2x.png in Resources */,
 				83365E4214BBECCA00895EC6 /* meterHead.png in Resources */,
 				83365E4314BBECCA00895EC6 /* meterHead@2x.png in Resources */,
 				8318952314C0D4BC007DF5E4 /* reminderIconOp2.png in Resources */,
@@ -509,6 +532,12 @@
 				83C0B00A14CA302A004ADF0D /* mapIcon@2x.png in Resources */,
 				838FCF3114CF941D009237C5 /* compass-loc.png in Resources */,
 				838FCF3214CF941D009237C5 /* compass-loc@2x.png in Resources */,
+				83A9998F14D45206002346F2 /* moreOptions.png in Resources */,
+				83A9999014D45206002346F2 /* moreOptions@2x.png in Resources */,
+				83EF825314DC3F8000A2002F /* centerMapPin.png in Resources */,
+				83EF825414DC3F8000A2002F /* centerMapPin@2x.png in Resources */,
+				8374DEF114E207AB0040E32C /* meterPin.png in Resources */,
+				8374DEF214E207AB0040E32C /* meterPin@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +575,7 @@
 				83C0AFDF14C5217A004ADF0D /* CHParkingSpot.m in Sources */,
 				83C0AFF014C9C77E004ADF0D /* CHSharedReminderViewController.m in Sources */,
 				83C0B00D14CB5E53004ADF0D /* FlipClockViewController.m in Sources */,
+				83A63AFF14D44B2C007EBFE6 /* CHOptionsMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,10 +605,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Charles Hagman";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Charles Hagman";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -587,9 +620,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=*]" = "";
+				PROVISIONING_PROFILE = "8DF9B09E-A46D-44AF-9D01-397F7A2F5D9E";
+				"PROVISIONING_PROFILE[sdk=*]" = "8DF9B09E-A46D-44AF-9D01-397F7A2F5D9E";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = "Ad Hoc";
@@ -609,7 +643,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -634,9 +671,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Charles Hagman";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Charles Hagman";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -645,7 +686,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "8DF9B09E-A46D-44AF-9D01-397F7A2F5D9E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DF9B09E-A46D-44AF-9D01-397F7A2F5D9E";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -664,10 +708,19 @@
 		83BA600014A8C82200D8F9F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Charles Hagman";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Charles Hagman";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parking/Parking-Prefix.pch";
 				INFOPLIST_FILE = "Parking/Parking-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8DF9B09E-A46D-44AF-9D01-397F7A2F5D9E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DF9B09E-A46D-44AF-9D01-397F7A2F5D9E";
+				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

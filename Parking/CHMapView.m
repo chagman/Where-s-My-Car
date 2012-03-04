@@ -13,15 +13,17 @@
 #import "CarManager.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import "CHCountdownViewController.h"
 
 @interface CHMapView()
 -(void)startStandardUpdates;
 -(MKCoordinateRegion)regionThatFitsSpotAndUserLocation;
+-(void)showMeter:(id)sender;
 @end
 
 @implementation CHMapView
 
-@synthesize mapView=_mapView, locationManager=_locationManager, parkingSpot=_parkingSpot;
+@synthesize mapView=_mapView, locationManager=_locationManager, parkingSpot=_parkingSpot, segmentedControl=_segmentedControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,14 +67,26 @@
     //Set the pin image
     UIImage *pinImage = [UIImage imageNamed:@"meterPin.png"];
 	[customAnnotationView setImage:pinImage];
+    customAnnotationView.alpha = 1.0;
     customAnnotationView.canShowCallout = YES;
     //Set the icon in the callout
     UIImageView *leftIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"whiteCar.png"]];
 	customAnnotationView.leftCalloutAccessoryView = leftIconView;
 	customAnnotationView.centerOffset = CGPointMake(0, -27);
+    
+    //Add the button to show the meter
+    UIButton *meterViewButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [meterViewButton addTarget:self action:@selector(showMeter:) forControlEvents:UIControlEventTouchUpInside];
+    //customAnnotationView.rightCalloutAccessoryView = meterViewButton;
+    
     return customAnnotationView;
 
     
+}
+
+-(void)showMeter:(id)sender {
+    [self performSegueWithIdentifier: @"showMeterView" 
+                              sender: self];
 }
 
 - (IBAction) annotationViewClick:(id) sender {
@@ -123,6 +137,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.segmentedControl.enabled = YES;
+    self.segmentedControl.hidden = NO;
     
     [self.mapView setDelegate:self];
 	self.mapView.showsUserLocation = YES;
@@ -192,11 +208,15 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"modalPark"]) {
-        NSLog(@"Destination controller %@", [[segue destinationViewController] class] );
-        NSLog(@"Destination top controller %@", [[[segue destinationViewController] topViewController] class] );
         CHParkingView *view = (CHParkingView *)[[segue destinationViewController] topViewController];
         view.parkingDelegate = self;
-    }
+    } /*else if ([[segue identifier] isEqualToString:@"showMeter"]) {
+        CHCountdownViewController *view = (CHCountdownViewController *)[[segue destinationViewController] topViewController];
+        
+        if (self.parkingSpot.endDate != nil && self.parkingS
+        NSInteger timeRemaining = [self.parkingSpot.endDate timeIntervalSince1970] - [[[NSDate alloc] init] timeIntervalSince1970 ];
+        view.timeRemaining = timeRemaining;
+    }*/
 }
 
 - (void)viewDidUnload
@@ -251,6 +271,29 @@
         
     }
     // else skip the event and process the next one.
+}
+
+-(IBAction)changeMapType:(id)sender{
+    
+    if ([sender class] == [UISegmentedControl class]) {
+        NSLog(@"Changed map type");
+        UISegmentedControl *control = (UISegmentedControl *)control;
+        
+        switch (self.segmentedControl.selectedSegmentIndex) {
+            case 0:
+                self.mapView.mapType = MKMapTypeStandard;
+                break;
+            case 1:
+                self.mapView.mapType = MKMapTypeSatellite;
+                break;
+            case 2:
+                self.mapView.mapType = MKMapTypeHybrid;
+                break;
+            default:
+                break;
+        }
+        
+    }
 }
 
 @end

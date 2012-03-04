@@ -21,12 +21,16 @@
     
     CHParkingSpot *_parkingSpot;
     
+    UISegmentedControl *_segmentedControl;
+    
 }
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CHParkingSpot *parkingSpot;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 -(IBAction)moveToUserlocationAndSpot:(id)sender;
+-(IBAction)changeMapType:(id)sender;
 
 @end

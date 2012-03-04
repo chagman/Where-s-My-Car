@@ -38,4 +38,7 @@
 - (CHParkingSpot *)getMostRecentSpot;
 - (NSString *) timeRemainingForSpot:(CHParkingSpot *)spot;
 
+//Random
+-(NSInteger)numberOfCars;
+
 @end

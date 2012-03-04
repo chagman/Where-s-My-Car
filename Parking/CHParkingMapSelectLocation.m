@@ -18,6 +18,7 @@
 - (BOOL)isValidLocation:(CLLocation *)newLocation
         withOldLocation:(CLLocation *)oldLocation;
 - (void)handleTap:(UIGestureRecognizer *)gestureRecognizer;
+- (void)addCenterPinImageToMap;
 
 @property (strong, nonatomic) NSDate *startLocationDate;
 
@@ -105,20 +106,19 @@
         return;
     }
     
-    if (oldLocation == nil) {
-        // 2
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
-        // 3
+    if (oldLocation == nil && self.currentSelectedLocation != nil) {
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentSelectedLocation.coordinate, 0.25*METERS_PER_MILE, 0.25*METERS_PER_MILE);
         MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];                
-        // 4
         [self.mapView setRegion:adjustedRegion animated:NO];
-        
+    } else if (oldLocation == nil) {
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 0.25*METERS_PER_MILE, 0.25*METERS_PER_MILE);
+        MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];                
+        [self.mapView setRegion:adjustedRegion animated:NO];
     }
-    // If it's a relatively recent event, turn off updates to save power
+    
     NSDate* eventDate = newLocation.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-    if (abs(howRecent) < 15.0)
-    {
+    if (abs(howRecent) < 15.0) {
         
         NSLog(@"latitude %+.6f, longitude %+.6f\n",
               newLocation.coordinate.latitude,
@@ -142,7 +142,9 @@
     
     CHLocationAnnotation *annot = [[CHLocationAnnotation alloc] initWithCoordinate:touchMapCoordinate];
     
-    [self.mapView removeAnnotation:self.currentSelectedLocation];
+    if (self.currentSelectedLocation != nil) {
+        [self.mapView removeAnnotation:self.currentSelectedLocation];
+    }
     
     [self.mapView addAnnotation:annot];
     self.currentSelectedLocation = annot;
@@ -153,7 +155,7 @@
 }
 
 -(void)setLocation {
-    [self.delegate setUserPickedLocation:self.currentSelectedLocation.coordinate];
+    [self.delegate setUserPickedLocation:self.mapView.centerCoordinate];
 }
 
 -(IBAction)changeMapType:(id)sender{
@@ -176,6 +178,14 @@
                 break;
         }
         
+    }
+}
+
+-(void)centerMap {
+    if (self.currentSelectedLocation != nil) {
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentSelectedLocation.coordinate, 0.25*METERS_PER_MILE, 0.25*METERS_PER_MILE);
+        MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];                
+        [self.mapView setRegion:adjustedRegion animated:NO];
     }
 }
 
@@ -203,20 +213,41 @@
     self.mapView.zoomEnabled = YES;
     self.mapView.scrollEnabled = YES;
     
-    self.navigationItem.rightBarButtonItem.enabled = (self.currentSelectedLocation != nil);
+    self.navigationItem.rightBarButtonItem.enabled = YES;
     
     [self startStandardUpdates];
     
     if (self.currentSelectedLocation != nil) {
-        [self.mapView removeAnnotations:[self.mapView annotations]];
-        [self.mapView addAnnotation:self.currentSelectedLocation];
+        [self centerMap];
     }
     
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] 
-                                          initWithTarget:self action:@selector(handleTap:)];
-    longPress.minimumPressDuration = .125;
-    [self.mapView addGestureRecognizer:longPress];
+    [self addCenterPinImageToMap];
+    
+    //UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] 
+    //                                      initWithTarget:self action:@selector(handleTap:)];
+    //longPress.minimumPressDuration = .125;
+    //[self.mapView addGestureRecognizer:longPress];
 
+}
+
+-(void) addCenterPinImageToMap {
+    float imageWidth = 20;
+    float imageHeight = 50;
+    //CGPoint center = [self.mapView convertCoordinate:self.mapView.centerCoordinate toPointToView:self.view];
+    
+    CGPoint center = self.mapView.center;
+    
+    NSLog(@"Mapview center point x: %f, y: %f", center.x, center.y);
+    NSLog(@"View center point x: %f, y: %f", self.view.center.x, self.view.center.y);
+    
+    float x = center.x - imageWidth/2.0;
+    float y = center.y - imageHeight - 22;
+    
+    CGRect frame = CGRectMake(x, y, imageWidth, imageHeight);
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+    imageView.image = [UIImage imageNamed:@"centerMapPin.png"];
+    
+    [self.view addSubview:imageView];
 }
 
 - (void)viewDidUnload
