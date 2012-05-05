@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830017F71555D43400F8EA0A /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 830017F51555D43400F8EA0A /* Appirater.m */; };
+		830017FB1555D63A00F8EA0A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830017FA1555D63A00F8EA0A /* SystemConfiguration.framework */; };
+		830017FD1555D64B00F8EA0A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830017FC1555D64B00F8EA0A /* CFNetwork.framework */; };
+		830018001555DFD500F8EA0A /* CHParkingAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 830017FE1555DFD500F8EA0A /* CHParkingAnnotation.m */; };
 		8318951F14C0B949007DF5E4 /* CHCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318951E14C0B949007DF5E4 /* CHCountdownView.m */; };
 		8318952314C0D4BC007DF5E4 /* reminderIconOp2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8318952114C0D4BC007DF5E4 /* reminderIconOp2.png */; };
 		8318952414C0D4BC007DF5E4 /* reminderIconOp2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8318952214C0D4BC007DF5E4 /* reminderIconOp2@2x.png */; };
@@ -35,7 +39,6 @@
 		8346C2CC14AFC1230093982A /* CHMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8346C2CB14AFC1230093982A /* CHMeterView.m */; };
 		8346C2CF14AFC13B0093982A /* CHReminderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8346C2CE14AFC13A0093982A /* CHReminderView.m */; };
 		8346C2DD14B3FA800093982A /* CHTimeTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8346C2DC14B3FA800093982A /* CHTimeTabBar.m */; };
-		835C6B5C14AA3AD50028FC91 /* CHParkingAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 835C6B5B14AA3AD50028FC91 /* CHParkingAnnotation.m */; };
 		8369777C14ABB3A300848ACD /* CHEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369777B14ABB3A300848ACD /* CHEditTableViewCell.m */; };
 		8369778314AC2E4A00848ACD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8369778214AC2E4A00848ACD /* CoreLocation.framework */; };
 		837421DC14C260C600A7C79C /* CHUIMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 837421DB14C260C600A7C79C /* CHUIMeterView.m */; };
@@ -93,6 +96,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		830017F51555D43400F8EA0A /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		830017F61555D43400F8EA0A /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		830017FA1555D63A00F8EA0A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		830017FC1555D64B00F8EA0A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		830017FE1555DFD500F8EA0A /* CHParkingAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHParkingAnnotation.m; sourceTree = "<group>"; };
+		830017FF1555DFD500F8EA0A /* CHParkingAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHParkingAnnotation.h; sourceTree = "<group>"; };
 		8318951D14C0B949007DF5E4 /* CHCountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountdownView.h; sourceTree = "<group>"; };
 		8318951E14C0B949007DF5E4 /* CHCountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountdownView.m; sourceTree = "<group>"; };
 		8318952114C0D4BC007DF5E4 /* reminderIconOp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reminderIconOp2.png; sourceTree = "<group>"; };
@@ -131,8 +140,6 @@
 		8346C2CE14AFC13A0093982A /* CHReminderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHReminderView.m; sourceTree = "<group>"; };
 		8346C2DB14B3FA800093982A /* CHTimeTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTimeTabBar.h; sourceTree = "<group>"; };
 		8346C2DC14B3FA800093982A /* CHTimeTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTimeTabBar.m; sourceTree = "<group>"; };
-		835C6B5A14AA3AD50028FC91 /* CHParkingAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHParkingAnnotation.h; path = ../CHParkingAnnotation.h; sourceTree = "<group>"; };
-		835C6B5B14AA3AD50028FC91 /* CHParkingAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHParkingAnnotation.m; path = ../CHParkingAnnotation.m; sourceTree = "<group>"; };
 		8369777A14ABB3A300848ACD /* CHEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHEditTableViewCell.h; sourceTree = "<group>"; };
 		8369777B14ABB3A300848ACD /* CHEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHEditTableViewCell.m; sourceTree = "<group>"; };
 		8369778214AC2E4A00848ACD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -212,6 +219,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				830017FD1555D64B00F8EA0A /* CFNetwork.framework in Frameworks */,
+				830017FB1555D63A00F8EA0A /* SystemConfiguration.framework in Frameworks */,
 				83C0E3F414B75F8500AF9740 /* QuartzCore.framework in Frameworks */,
 				8369778314AC2E4A00848ACD /* CoreLocation.framework in Frameworks */,
 				83BA604F14A8D18400D8F9F6 /* MapKit.framework in Frameworks */,
@@ -225,6 +234,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		830017F41555D3E600F8EA0A /* Appirater */ = {
+			isa = PBXGroup;
+			children = (
+				830017F61555D43400F8EA0A /* Appirater.h */,
+				830017F51555D43400F8EA0A /* Appirater.m */,
+			);
+			name = Appirater;
+			sourceTree = "<group>";
+		};
 		83365E5214BE6E5A00895EC6 /* Countdown */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +383,8 @@
 		83BA5FDB14A8C82200D8F9F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				830017FC1555D64B00F8EA0A /* CFNetwork.framework */,
+				830017FA1555D63A00F8EA0A /* SystemConfiguration.framework */,
 				83C0E3F314B75F8500AF9740 /* QuartzCore.framework */,
 				8369778214AC2E4A00848ACD /* CoreLocation.framework */,
 				83BA604E14A8D18400D8F9F6 /* MapKit.framework */,
@@ -379,6 +399,7 @@
 		83BA5FE414A8C82200D8F9F6 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
+				830017F41555D3E600F8EA0A /* Appirater */,
 				83BA5FED14A8C82200D8F9F6 /* AppDelegate.h */,
 				83BA5FEE14A8C82200D8F9F6 /* AppDelegate.m */,
 				83BA5FF014A8C82200D8F9F6 /* MainStoryboard.storyboard */,
@@ -406,8 +427,8 @@
 		83BA605014A8D19200D8F9F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				835C6B5A14AA3AD50028FC91 /* CHParkingAnnotation.h */,
-				835C6B5B14AA3AD50028FC91 /* CHParkingAnnotation.m */,
+				830017FE1555DFD500F8EA0A /* CHParkingAnnotation.m */,
+				830017FF1555DFD500F8EA0A /* CHParkingAnnotation.h */,
 				83BA5FF314A8C82200D8F9F6 /* Parking.xcdatamodeld */,
 				83C0AFDD14C5217A004ADF0D /* CHParkingSpot.h */,
 				83C0AFDE14C5217A004ADF0D /* CHParkingSpot.m */,
@@ -553,7 +574,6 @@
 				83BA5FF514A8C82200D8F9F6 /* Parking.xcdatamodeld in Sources */,
 				83BA5FF814A8C82200D8F9F6 /* MasterViewController.m in Sources */,
 				83BA604C14A8D14500D8F9F6 /* CHMapView.m in Sources */,
-				835C6B5C14AA3AD50028FC91 /* CHParkingAnnotation.m in Sources */,
 				833FDE7814AAAB9700FB7AB6 /* CHParkingView.m in Sources */,
 				833FDE8414AAE26F00FB7AB6 /* CHCarPickerView.m in Sources */,
 				838A2AD014AB95AA0032213B /* CHAddCarView.m in Sources */,
@@ -576,6 +596,8 @@
 				83C0AFF014C9C77E004ADF0D /* CHSharedReminderViewController.m in Sources */,
 				83C0B00D14CB5E53004ADF0D /* FlipClockViewController.m in Sources */,
 				83A63AFF14D44B2C007EBFE6 /* CHOptionsMenuViewController.m in Sources */,
+				830017F71555D43400F8EA0A /* Appirater.m in Sources */,
+				830018001555DFD500F8EA0A /* CHParkingAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,10 +653,12 @@
 		83365E1B14BA883900895EC6 /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parking/Parking-Prefix.pch";
 				INFOPLIST_FILE = "Parking/Parking-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Ad Hoc";
@@ -697,10 +721,12 @@
 		83BA5FFF14A8C82200D8F9F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parking/Parking-Prefix.pch";
 				INFOPLIST_FILE = "Parking/Parking-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9R0-TN-IMW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2177" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9R0-TN-IMW">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1173"/>
     </dependencies>
     <scenes>
+        <!--Countdown View Controller - Meter-->
         <scene sceneID="U3g-Gy-3SM">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8k7-JZ-4hJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,6 +136,7 @@
             </objects>
             <point key="canvasLocation" x="887" y="1066"/>
         </scene>
+        <!--Map View - Map-->
         <scene sceneID="WBe-uP-DoM">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdy-QP-rYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,6 +216,7 @@
             </objects>
             <point key="canvasLocation" x="439" y="1699"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="L8C-ps-1Ky">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDL-w2-ZYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,6 +233,7 @@
             </objects>
             <point key="canvasLocation" x="847" y="400"/>
         </scene>
+        <!--Options Menu View Controller - Options-->
         <scene sceneID="hPE-M8-eg8">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJg-fT-sCa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -246,14 +250,14 @@
                                     <rect key="frame" x="10" y="1" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Cars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k4h-xx-nET">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Cars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" id="k4h-xx-nET">
                                             <rect key="frame" x="10" y="11" width="38" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ylx-GP-Zvc">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" id="ylx-GP-Zvc">
                                             <rect key="frame" x="226" y="11" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -272,10 +276,10 @@
                                 <rect key="frame" x="0.0" y="91" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nuP-PH-Jrf">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" id="nuP-PH-Jrf">
                                             <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -299,7 +303,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Options" id="TNy-dM-kur">
                         <barButtonItem key="leftBarButtonItem" image="moreOptions.png" id="qzM-Rp-uXb">
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="backToMap:" destination="fNj-Ed-by1" id="NRI-s0-qP3"/>
                             </connections>
@@ -310,6 +314,7 @@
             </objects>
             <point key="canvasLocation" x="1271" y="408"/>
         </scene>
+        <!--View Controller - About-->
         <scene sceneID="8fC-9B-S3V">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="323-W2-J6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -356,6 +361,7 @@
             </objects>
             <point key="canvasLocation" x="1740" y="408"/>
         </scene>
+        <!--Parking Map Select Location - Your Location-->
         <scene sceneID="Wx3-Vl-6dn">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Sr-oO-9gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -424,6 +430,7 @@
             </objects>
             <point key="canvasLocation" x="1752" y="1066"/>
         </scene>
+        <!--Add Car View-->
         <scene sceneID="dxO-K6-JiY">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHa-uZ-NKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -481,6 +488,7 @@
             </objects>
             <point key="canvasLocation" x="2480" y="902"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="KUD-2t-f4d">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1g-C9-bqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,6 +503,7 @@
             </objects>
             <point key="canvasLocation" x="853" y="1700"/>
         </scene>
+        <!--Parking View-->
         <scene sceneID="Hr1-KD-NUK">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YhZ-eF-SLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -511,14 +520,14 @@
                                     <rect key="frame" x="10" y="1" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zt0-LL-1dA">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" id="zt0-LL-1dA">
                                             <rect key="frame" x="10" y="15" width="67" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                             <color key="textColor" red="0.32156862745098042" green="0.40000000000000002" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OQq-Ep-Ve0">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" id="OQq-Ep-Ve0">
                                             <rect key="frame" x="83" y="12" width="41" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -537,7 +546,7 @@
                                 <rect key="frame" x="0.0" y="91" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Detail" lineBreakMode="wordWrap" numberOfLines="2" minimumFontSize="10" id="Hwr-Nn-gRd">
@@ -567,10 +576,10 @@
                                 <rect key="frame" x="0.0" y="135" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Notes" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="5BJ-ms-cbQ">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Notes" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="5BJ-ms-cbQ">
                                             <rect key="frame" x="10" y="14" width="67" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
@@ -599,7 +608,7 @@
                                 <rect key="frame" x="0.0" y="179" width="320" height="181"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="179"/>
+                                    <rect key="frame" x="10" y="0.0" width="300" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <mapView multipleTouchEnabled="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" showsUserLocation="YES" id="cWh-wl-MVx">
@@ -641,6 +650,7 @@
             </objects>
             <point key="canvasLocation" x="1297" y="1690"/>
         </scene>
+        <!--Reminder View - Date-->
         <scene sceneID="akC-2V-w53">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSO-rD-og8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -730,6 +740,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="2263" y="2565"/>
         </scene>
+        <!--Meter View - Timer-->
         <scene sceneID="Mrj-ap-XVB">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZY-UL-sps" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -821,6 +832,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="2263" y="2000"/>
         </scene>
+        <!--Time Tab Bar-->
         <scene sceneID="ZHd-Hf-JxH">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQ3-JW-dBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -846,6 +858,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1729" y="2283"/>
         </scene>
+        <!--Car Picker View-->
         <scene sceneID="HMR-jA-tQ0">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wq6-tV-0NX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -881,6 +894,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1737" y="1690"/>
         </scene>
+        <!--Master View Controller - Master-->
         <scene sceneID="18">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -897,7 +911,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rV2-7n-EJo">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" id="rV2-7n-EJo">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

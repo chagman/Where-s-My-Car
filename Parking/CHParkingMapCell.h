@@ -14,6 +14,7 @@
 
 -(void)updateLocation:(CLLocation *)location;
 -(void)selectedMap;
+-(void)gpsLocationAccuracyIsPoor:(CLLocationAccuracy) accuracy;
 
 @end
 
@@ -24,6 +25,9 @@
     CLLocation *_location;
     BOOL _userDidPickLocation;
     
+    //Variable used to keep waiting on GPS reception
+    BOOL _keepWaiting;
+    
     __weak id<CHParkingMapViewCellDelegate> _cellDelegate;
 }
 
@@ -32,6 +36,7 @@
 @property (strong, nonatomic) CLLocation *location;
 @property (weak, nonatomic) id <CHParkingMapViewCellDelegate> cellDelegate;
 @property (nonatomic) BOOL userDidPickLocation;
+@property (nonatomic) BOOL keepWaiting;
 
 - (void)configureMapViewCell;
 - (void)startStandardUpdates;

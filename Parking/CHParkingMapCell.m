@@ -18,13 +18,14 @@
 - (BOOL)isValidLocation:(CLLocation *)newLocation
         withOldLocation:(CLLocation *)oldLocation;
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer;
+- (BOOL)poorGPSreception:(CLLocation *)location wait:(NSInteger)time;
 @property (strong, nonatomic) NSDate *startLocationDate;
 
 @end
 
 @implementation CHParkingMapCell
 
-@synthesize locationManager=_locationManager, mapView=_mapView, location=_location, cellDelegate=_cellDelegate, startLocationDate=_startLocationDate, userDidPickLocation=_userDidPickLocation;
+@synthesize locationManager=_locationManager, mapView=_mapView, location=_location, cellDelegate=_cellDelegate, startLocationDate=_startLocationDate, userDidPickLocation=_userDidPickLocation, keepWaiting=_keepWaiting;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -72,8 +73,9 @@
     // already have one.
     if (nil == _locationManager) {
         self.locationManager = [[CLLocationManager alloc] init];
-        self.startLocationDate = [[NSDate alloc] init];
     }
+    
+    self.startLocationDate = [[NSDate alloc] init];
     
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -127,9 +129,16 @@
         return;
     }
     
+    if (!self.keepWaiting && [self poorGPSreception:newLocation wait:15]) {
+        NSLog(@"Poor GPS Reception");
+        [self.cellDelegate gpsLocationAccuracyIsPoor:newLocation.horizontalAccuracy];
+        return;
+    }
+    
     if (oldLocation == nil) {
         [self moveMapToCoordinate:newLocation.coordinate];
     }
+    
     // If it's a relatively recent event, turn off updates to save power
     NSDate* eventDate = newLocation.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
@@ -203,6 +212,17 @@
      //customPinView.rightCalloutAccessoryView = rightButton;
      return customPinView;
     
+}
+
+-(BOOL)poorGPSreception:(CLLocation *)location wait:(NSInteger)time {
+    //Acceptable accuracy
+    BOOL acceptableAccuracy = (location.horizontalAccuracy == kCLLocationAccuracyBest) ||
+                              (location.horizontalAccuracy == kCLLocationAccuracyBestForNavigation) ||
+                              (location.horizontalAccuracy == kCLLocationAccuracyNearestTenMeters);
+    
+    //Acceptable amount of time to wait
+    return [location.timestamp timeIntervalSinceDate:self.startLocationDate] > time &&
+            !acceptableAccuracy;
 }
 
 

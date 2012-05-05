@@ -15,6 +15,7 @@
 #import "CHMeterView.h"
 #import "CHLocationAnnotation.h"
 #import "CHReminderView.h"
+#import "Appirater.h"
 
 
 @interface CHParkingView () {
@@ -95,6 +96,7 @@
         } else {
             spot = [[CarManager sharedCarManager] parkWithCar:self.car location:self.location notes:self.notes reminder:self.reminderSet]; 
         }
+        [Appirater userDidSignificantEvent:NO];
         [self.parkingDelegate addParkingSpotToMap:spot];
     }
 }
@@ -326,6 +328,10 @@
 
 -(BOOL) calendarReminderIsSet {
     return self.endDate != nil;
+}
+
+-(void)gpsLocationAccuracyIsPoor:(CLLocationAccuracy)accuracy {
+    //TODO
 }
 
 #pragma mark - View lifecycle
