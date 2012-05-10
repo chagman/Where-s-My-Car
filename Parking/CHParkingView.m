@@ -332,6 +332,7 @@
 
 -(void)gpsLocationAccuracyIsPoor:(CLLocationAccuracy)accuracy {
     //TODO
+    NSLog(@"Poor GPS Location data");
 }
 
 #pragma mark - View lifecycle
